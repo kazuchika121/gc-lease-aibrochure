@@ -51,25 +51,24 @@
             flex-direction: column;
         }
 
-        /* --- 変更点: ヘッダーエリアのスタイル --- */
+        /* ヘッダーエリア（背景画像あり） */
         .header-hero-bg {
-            /* 背景画像と暗いオーバーレイの設定 */
             background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), /* 文字を見やすくするための暗いフィルター */
-                url('./top_copy.png'); /* 背景画像 */
+                linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), 
+                url('./top_copy.png'); /* トップ画像 */
             background-size: cover;
             background-position: center;
             
-            padding: 60px 30px 40px; /* 上下の余白を広げてバランス調整 */
+            padding: 60px 30px 40px; 
             text-align: center;
             flex-shrink: 0;
-            color: var(--white); /* テキストの基本色を白に */
-            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* 視認性向上のための影 */
+            color: var(--white); 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
             border-bottom: 5px solid var(--gold-primary);
         }
 
         .news-badge {
-            background: var(--gold-primary); /* 背景に合わせて少し明るめのゴールドに */
+            background: var(--gold-primary); 
             color: var(--white);
             padding: 6px 20px;
             font-weight: 700;
@@ -79,12 +78,12 @@
             border-radius: 50px;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-            text-shadow: none; /* バッジ内の文字は影なしでクリアに */
+            text-shadow: none; 
         }
 
         .header-sub-copy {
             font-size: 20px;
-            color: var(--gold-light); /* サブコピーも明るいゴールド系に */
+            color: var(--gold-light); 
             font-weight: 700;
             margin-bottom: 10px;
             display: block;
@@ -97,20 +96,15 @@
             color: var(--white);
             font-weight: 700;
             margin: 0;
-            /* text-shadowは親要素から継承 */
         }
 
-        /* ハイライトのスタイルを変更 */
         .highlight-gold {
-            color: var(--gold-primary); /* 文字色をゴールドに */
+            color: var(--gold-primary); 
             font-size: 1.15em;
-            /* 背景が暗いため、下線マーカーではなく文字色強調に変更 */
             background: none; 
             padding: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8); /* より強い影で強調 */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
         }
-        /* ------------------------------------ */
-
 
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
@@ -119,7 +113,6 @@
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             flex-shrink: 0;
-            /* margin-top: 10px; 削除: ヘッダーとの間隔調整 */
         }
 
         .evidence-title {
@@ -143,11 +136,12 @@
         }
 
         .evidence-img-box {
-            height: 80px;
+            height: 90px; /* 画像が見やすいように少し高さを調整 */
             overflow: hidden;
             border: 2px solid white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 4px;
+            background: #eee;
         }
 
         .evidence-img-box img {
@@ -580,19 +574,19 @@
             <div class="evidence-grid">
                 <div class="evidence-item">
                     <div class="evidence-img-box">
-                        <img src="./evidence_1.jpg" alt="泡">
+                        <img src="evidence_1.jpg.png" alt="泡">
                     </div>
                     <span>反応：泡</span>
                 </div>
                 <div class="evidence-item">
                     <div class="evidence-img-box">
-                        <img src="./evidence_2.jpg" style="filter: brightness(1.2) sepia(0.3);" alt="白濁">
+                        <img src="evidence_2.jpg.png" alt="反応">
                     </div>
-                    <span>反応：白濁</span>
+                    <span>反応：排出物</span>
                 </div>
                 <div class="evidence-item">
                     <div class="evidence-img-box">
-                         <img src="./evidence_3.jpg" style="filter: contrast(1.2) brightness(0.8);" alt="変色">
+                         <img src="evidence_3.jpg.png" alt="変色">
                     </div>
                     <span>反応：変色</span>
                 </div>
