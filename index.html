@@ -59,7 +59,7 @@
             background-size: cover;
             background-position: center;
             
-            padding: 60px 30px 40px; 
+            padding: 50px 30px 30px; /* 余白を少し調整 */
             text-align: center;
             flex-shrink: 0;
             color: var(--white); 
@@ -109,7 +109,7 @@
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
             background: linear-gradient(to bottom, #f9f9f9, #fff);
-            padding: 15px 30px; 
+            padding: 20px 30px; /* 上下の余白を少し増やす */
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             flex-shrink: 0;
@@ -119,7 +119,7 @@
             text-align: center;
             font-weight: 700;
             color: var(--pink-accent);
-            margin: 0 0 10px 0;
+            margin: 0 0 15px 0; /* 下のマージンを少し増やす */
             font-size: 18px; 
             text-shadow: 1px 1px 0px #fff;
             line-height: 1.3;
@@ -128,21 +128,23 @@
         .evidence-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 12px;
+            gap: 15px; /* ギャップを少し広げる */
         }
 
         .evidence-item {
             text-align: center;
         }
 
+        /* --- 変更点: 画像ボックスの高さを増やして大きく表示 --- */
         .evidence-img-box {
-            height: 90px; /* 画像が見やすいように少し高さを調整 */
+            height: 130px; /* 90pxから130pxに変更 */
             overflow: hidden;
             border: 2px solid white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 4px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15); /* 影を少し強く */
+            margin-bottom: 6px; /* 下のマージンを少し増やす */
             background: #eee;
         }
+        /* ------------------------------------ */
 
         .evidence-img-box img {
             width: 100%;
@@ -151,18 +153,18 @@
         }
 
         .evidence-item span {
-            font-size: 12px;
+            font-size: 13px; /* フォントサイズを少し大きく */
             font-weight: 700;
             color: var(--text-gray);
             background: #eee;
-            padding: 2px 8px;
-            border-radius: 10px;
+            padding: 3px 10px; /* パディングを少し増やす */
+            border-radius: 12px;
         }
         
         .evidence-caption {
             text-align: center; 
             font-size: 12px;
-            margin: 6px 0 0 0; 
+            margin: 10px 0 0 0; /* 上のマージンを少し増やす */
             color: var(--text-dark);
             font-weight: 700;
             line-height: 1.4;
@@ -170,7 +172,7 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            padding: 10px 30px; 
+            padding: 15px 30px; /* 上下の余白を少し増やす */
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
