@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God-Cleaner GOLD A4 Flyer + AI Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* A4 Reset & Setup */
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-dark: #B8860B; 
+            --gold-light: #f3e5ab;
+            --purple-accent: #4B0082;
+            --pink-accent: #E9528E; 
+            --text-dark: #333;
+            --text-gray: #555;
+            --white: #fff;
+            --a4-width: 210mm;
+            --a4-height: 297mm;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: #e0e0e0;
+            font-family: 'Noto Sans JP', sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* A4 Container */
+        .page {
+            width: var(--a4-width);
+            height: var(--a4-height);
+            background: white;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            
+            /* Decorative Background Texture */
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(212, 175, 55, 0.1) 0%, transparent 30%),
+                radial-gradient(circle at 100% 40%, rgba(75, 0, 130, 0.05) 0%, transparent 30%);
+        }
+
+        /* 1. HEADER AREA */
+        .header {
+            padding: 25px 30px 5px; 
+            position: relative;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .news-badge {
+            background: var(--gold-dark);
+            color: white;
+            padding: 6px 18px;
+            font-weight: 700;
+            font-size: 18px;
+            display: inline-block;
+            margin-bottom: 8px;
+            border-radius: 2px;
+            letter-spacing: 0.05em;
+        }
+
+        .header-main-copy {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 32px; 
+            line-height: 1.25;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            text-shadow: 2px 2px 0px rgba(255,255,255,1);
+        }
+
+        .highlight-gold {
+            color: #b8860b;
+            font-size: 1.1em;
+        }
+
+        .header-sub-copy {
+            font-size: 20px;
+            color: var(--pink-accent);
+            font-weight: 700;
+            border-bottom: 2px solid var(--gold-primary);
+            display: inline-block;
+            padding-bottom: 2px;
+            margin-bottom: 10px;
+        }
+
+        .target-box {
+            background: rgba(255,255,255,0.95);
+            border-left: 6px solid var(--purple-accent);
+            padding: 8px 15px;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            width: fit-content;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            line-height: 1.5;
+        }
+
+        /* 2. MAIN VISUAL AREA */
+        .main-visual-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 0 0 0 30px;
+            height: 200px; 
+            position: relative;
+            margin-top: -20px; 
+            z-index: 5;
+            flex-shrink: 0;
+        }
+
+        .product-image {
+            width: 55%;
+            height: 120%;
+            object-fit: contain;
+            object-position: bottom right;
+            position: absolute;
+            right: -20px;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .visual-catch {
+            width: 48%;
+            padding-bottom: 15px;
+            z-index: 2;
+        }
+
+        .visual-catch h2 {
+            font-family: 'Noto Serif JP', serif;
+            font-size: 20px;
+            color: var(--text-dark);
+            border-bottom: 3px solid var(--gold-primary);
+            padding-bottom: 5px;
+            margin-bottom: 8px;
+        }
+        
+        .visual-catch p {
+            font-size: 24px; 
+            color: #444; 
+            font-weight: 900; 
+            line-height: 1.3;
+            margin: 0;
+            letter-spacing: -0.05em;
+        }
+
+        /* 3. EVIDENCE IMAGES */
+        .evidence-section {
+            background: linear-gradient(to bottom, #f9f9f9, #fff);
+            padding: 10px 30px; 
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            flex-shrink: 0;
+        }
+
+        .evidence-title {
+            text-align: center;
+            font-weight: 700;
+            color: var(--pink-accent);
+            margin: 0 0 10px 0;
+            font-size: 19px; 
+            text-shadow: 1px 1px 0px #fff;
+            line-height: 1.3;
+        }
+
+        .evidence-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .evidence-item {
+            text-align: center;
+        }
+
+        .evidence-img-box {
+            height: 85px;
+            overflow: hidden;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 4px;
+        }
+
+        .evidence-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .evidence-item span {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-gray);
+            background: #eee;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        
+        .evidence-caption {
+            text-align: center; 
+            font-size: 13px;
+            margin: 6px 0 0 0; 
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        /* 4. MERITS SECTION */
+        .merits-section {
+            padding: 15px 30px; 
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-heading {
+            text-align: center;
+            font-size: 22px;
+            color: var(--text-dark);
+            margin: 0 0 15px 0;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--gold-primary);
+            margin: 5px auto 0;
+        }
+
+        .merits-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .merit-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-top: 4px solid var(--gold-primary);
+            padding: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+
+        .merit-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .merit-icon {
+            font-size: 22px;
+            color: var(--gold-primary);
+            margin-right: 8px;
+        }
+
+        .merit-title {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .merit-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .merit-list li {
+            font-size: 12px;
+            margin-bottom: 6px;
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.3;
+            color: var(--text-gray);
+        }
+
+        .merit-list li::before {
+            content: '✔';
+            color: var(--pink-accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* 5. FOOTER / CTA */
+        .footer-section {
+            background-color: #FFF0F5;
+            border-top: 3px solid var(--pink-accent);
+            color: var(--text-dark);
+            padding: 15px 30px 10px; 
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .footer-flex-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-bg-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .footer-content {
+            position: relative;
+            z-index: 1;
+            width: 68%;
+        }
+
+        .footer-cta-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--pink-accent);
+            margin: 0 0 5px 0;
+        }
+
+        .footer-text {
+            font-size: 12px;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+        
+        .footer-contact-note {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-dark);
+            background: rgba(255,255,255,0.6);
+            padding: 2px 5px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .contact-info {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-info i {
+            margin-right: 5px;
+            color: var(--pink-accent);
+        }
+
+        .qr-area {
+            position: relative;
+            z-index: 1;
+            width: 28%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 8px;
+            color: #333;
+            border-radius: 8px;
+            border: 2px solid var(--pink-accent);
+            box-shadow: 0 4px 10px rgba(233, 82, 142, 0.2);
+        }
+
+        .qr-placeholder {
+            width: 70px;
+            height: 70px;
+            background: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+            margin-bottom: 4px;
+        }
+        
+        .qr-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--pink-accent);
+            line-height: 1.2;
+        }
+
+        .company-name {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-top: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-dark);
+            opacity: 0.8;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- AI Tool Styles --- */
+        .ai-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #E9528E, #4B0082);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .ai-fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(233, 82, 142, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(233, 82, 142, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(233, 82, 142, 0); }
+        }
+
+        .ai-fab-tooltip {
+            position: fixed;
+            bottom: 110px;
+            right: 20px;
+            background: #333;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+            white-space: nowrap;
+        }
+        .ai-fab:hover + .ai-fab-tooltip {
+            opacity: 1;
+        }
+
+        .ai-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(3px);
+        }
+
+        .ai-modal.active {
+            display: flex;
+        }
+
+        .ai-modal-content {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .ai-form-group {
+            margin-bottom: 20px;
+        }
+
+        .ai-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .ai-input, .ai-select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .ai-input:focus, .ai-select:focus {
+            border-color: var(--pink-accent);
+            outline: none;
+        }
+
+        .ai-submit-btn {
+            background: linear-gradient(to right, #E9528E, #4B0082);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .ai-submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .ai-submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .ai-result {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 5px solid var(--gold-primary);
+            display: none;
+            white-space: pre-wrap;
+            line-height: 1.6;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .loading-spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #ffffff;
+            border-top: 3px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media print {
+            .ai-fab, .ai-fab-tooltip, .ai-modal {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <!-- 1. Header -->
+        <header class="header">
+            <div class="news-badge">NEWS: リース制度開始</div><br>
+            <div class="header-sub-copy">まとまった手元資金なしで導入可能！</div>
+            <h1 class="header-main-copy">
+                デトックスサロン経営を<br>
+                <span class="highlight-gold">初期費用を抑えて</span><br>
+                始めませんか？
+            </h1>
+            <div class="target-box">
+                ★自宅サロン開業希望者<br>
+                ★既存店メニュー導入
+            </div>
+        </header>
+
+        <!-- 2. Main Visual -->
+        <div class="main-visual-container">
+            <div class="visual-catch">
+                <h2>God-Cleaner GOLD</h2>
+                <p>
+                    待望の『リース制度』が登場。
+                </p>
+            </div>
+            <!-- Machine Image -->
+            <img class="product-image" src="uploaded:top_copy.png" alt="God-Cleaner GOLD">
+        </div>
+
+        <!-- 3. Visual Evidence -->
+        <div class="evidence-section">
+            <h3 class="evidence-title">▼ 視覚で感じるデトックスの衝撃！SNS集客にも効果的 ▼</h3>
+            <div class="evidence-grid">
+                <div class="evidence-item">
+                    <div class="evidence-img-box">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7495636351999822843" alt="泡">
+                    </div>
+                    <span>反応：泡</span>
+                </div>
+                <div class="evidence-item">
+                    <div class="evidence-img-box">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7495636351999822843" style="filter: brightness(1.2) sepia(0.3);" alt="白濁">
+                    </div>
+                    <span>反応：白濁</span>
+                </div>
+                <div class="evidence-item">
+                    <div class="evidence-img-box">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7495636351999822843" style="filter: contrast(1.2) brightness(0.8);" alt="変色">
+                    </div>
+                    <span>反応：変色</span>
+                </div>
+            </div>
+            <p class="evidence-caption">※わずか30分で足が軽くなる感動を。<br>汚れの出方は体調や生活習慣により異なります。</p>
+        </div>
+
+        <!-- 4. Merits -->
+        <section class="merits-section">
+            <h2 class="section-heading">選ばれる2つの理由</h2>
+            <div class="merits-container">
+                <div class="merit-box">
+                    <div class="merit-header">
+                        <i class="fa-solid fa-medal merit-icon"></i>
+                        <span class="merit-title">圧倒的な実績と信頼</span>
+                    </div>
+                    <ul class="merit-list">
+                        <li><strong>国内導入実績No.1</strong><br>5,000台が稼働中（2025年末予想）</li>
+                        <li><strong>ドクターの証明付き</strong><br>富山大学名誉教授によるデータ有</li>
+                        <li><strong>FDA承認モデルのメカニズム</strong><br>基本原理は米国FDA承認</li>
+                    </ul>
+                </div>
+                <div class="merit-box">
+                    <div class="merit-header">
+                        <i class="fa-solid fa-coins merit-icon"></i>
+                        <span class="merit-title">リース制度で低リスク</span>
+                    </div>
+                    <ul class="merit-list">
+                        <li><strong>初期費用削減</strong><br>まとまった資金がなくてもOK</li>
+                        <li><strong>選べるプラン</strong><br>「3年プラン」等、計画に合わせて選択</li>
+                        <li><strong>リピート率UP</strong><br>回数券販売などで安定収益化</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Footer / CTA -->
+        <footer class="footer-section">
+            <img class="footer-bg-img" src="http://googleusercontent.com/image_collection/image_retrieval/1072845572810589762" alt="Salon Background">
+            
+            <div class="footer-flex-wrapper">
+                <div class="footer-content">
+                    <h3 class="footer-cta-title">まずは収益シミュレーション！</h3>
+                    <p class="footer-text">
+                        スマホで簡単チェック。<br>
+                        月間の【売上高】と【手取り利益】が自動計算されます。<br>
+                        すでに経営されている方も新メニュー追加で売上アップ！
+                    </p>
+                    <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
+                    
+                    <div class="contact-info">
+                        <div style="font-size: 11px; color: #555;">お問い合わせ: Mind Fitness Co., Ltd.</div>
+                        <span><i class="fa-solid fa-phone"></i> 070-3103-8584</span>
+                    </div>
+                </div>
+
+                <div class="qr-area">
+                    <div class="qr-placeholder">QR Code</div>
+                    <div class="qr-label">月々の収入を<br>チェック！</div>
+                </div>
+            </div>
+
+            <div class="company-name">MindFitness., Co ltd.</div>
+        </footer>
+    </div>
+
+    <!-- AI Tool Trigger -->
+    <div class="ai-fab" id="aiFab">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </div>
+    <div class="ai-fab-tooltip">AI集客コピー作成</div>
+
+    <!-- AI Tool Modal -->
+    <div class="ai-modal" id="aiModal">
+        <div class="ai-modal-content">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h3 style="color: var(--purple-accent); margin-top: 0; text-align: center;">✨ AI集客コピー＆メニュー提案</h3>
+            <p style="font-size: 13px; color: #666; text-align: center; margin-bottom: 20px;">
+                サロンの種類とターゲットを入力すると、Geminiが最適なメニュー名と宣伝文句を提案します。
+            </p>
+
+            <div class="ai-form-group">
+                <label class="ai-label">サロンの種類（または開業予定）</label>
+                <input type="text" class="ai-input" id="salonType" placeholder="例：ネイルサロン、自宅エステ、整体院">
+            </div>
+
+            <div class="ai-form-group">
+                <label class="ai-label">ターゲット層</label>
+                <input type="text" class="ai-input" id="targetAudience" placeholder="例：30代の子育てママ、疲れ気味の会社員">
+            </div>
+
+            <button class="ai-submit-btn" id="generateBtn">
+                <span class="btn-text">AIに提案してもらう</span>
+                <div class="loading-spinner" id="spinner"></div>
+            </button>
+
+            <div class="ai-result" id="aiResult"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        const apiKey = ""; // Set by runtime
+
+        const aiFab = document.getElementById('aiFab');
+        const aiModal = document.getElementById('aiModal');
+        const closeModal = document.getElementById('closeModal');
+        const generateBtn = document.getElementById('generateBtn');
+        const spinner = document.getElementById('spinner');
+        const btnText = document.querySelector('.btn-text');
+        const aiResult = document.getElementById('aiResult');
+        const salonTypeInput = document.getElementById('salonType');
+        const targetAudienceInput = document.getElementById('targetAudience');
+
+        // Modal Logic
+        aiFab.addEventListener('click', () => {
+            aiModal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', () => {
+            aiModal.classList.remove('active');
+        });
+
+        aiModal.addEventListener('click', (e) => {
+            if (e.target === aiModal) aiModal.classList.remove('active');
+        });
+
+        // AI Generation Logic
+        generateBtn.addEventListener('click', async () => {
+            const salonType = salonTypeInput.value.trim();
+            const target = targetAudienceInput.value.trim();
+
+            if (!salonType || !target) {
+                alert('サロンの種類とターゲット層を入力してください');
+                return;
+            }
+
+            // UI Loading State
+            generateBtn.disabled = true;
+            spinner.style.display = 'block';
+            btnText.textContent = '生成中...';
+            aiResult.style.display = 'none';
+
+            const prompt = `
+                あなたは美容・健康サロンのマーケティング専門家です。
+                今、サロンオーナーがデトックスマシン「God-Cleaner GOLD」（足湯デトックス）を導入しようとしています。
+                以下の条件に合わせて、このマシンを使った魅力的な新メニューと宣伝文句を考えてください。
+
+                【条件】
+                ・サロンの種類: ${salonType}
+                ・ターゲット層: ${target}
+                ・マシンの特徴: 30分で足裏からデトックス、水の色が変わる、足が軽くなる
+
+                【出力フォーマット】
+                以下の3つの項目を提案してください。口調は丁寧かつ提案するように。
+                1. 💎 提案メニュー名（キャッチーに）
+                2. 📣 キャッチコピー（一言で惹きつける）
+                3. 📱 インスタ投稿の本文案（ハッシュタグ含む）
+            `;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        contents: [{
+                            parts: [{ text: prompt }]
+                        }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API Error');
+                }
+
+                const data = await response.json();
+                const generatedText = data.candidates[0].content.parts[0].text;
+
+                // Display Result
+                aiResult.innerHTML = generatedText.replace(/\n/g, '<br>');
+                aiResult.style.display = 'block';
+
+            } catch (error) {
+                console.error(error);
+                alert('エラーが発生しました。もう一度お試しください。');
+            } finally {
+                generateBtn.disabled = false;
+                spinner.style.display = 'none';
+                btnText.textContent = 'AIに提案してもらう';
+            }
+        });
+    </script>
+</body>
+</html>
