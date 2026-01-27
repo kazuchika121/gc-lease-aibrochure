@@ -119,14 +119,17 @@
             justify-content: space-between;
             align-items: flex-end;
             padding: 0 0 0 30px;
-            height: 200px; 
+            /* height: 200px;  <- 変更前 */
+            height: 240px; /* 画像を大きくするために高さを確保 */
             position: relative;
-            margin-top: -20px; 
+            /* margin-top: -20px; <- 変更前 */
+            margin-top: -35px; /* 上の要素との隙間を狭めるためにマイナスを増やす */
             z-index: 5;
             flex-shrink: 0;
         }
 
         .product-image {
+            /* 変更前
             width: 55%;
             height: 120%;
             object-fit: contain;
@@ -135,10 +138,20 @@
             right: -20px;
             bottom: 0;
             z-index: 1;
+            */
+            /* 変更後：拡大して上に移動 */
+            width: 75%;
+            height: auto;
+            object-fit: contain;
+            position: absolute;
+            right: -40px;
+            top: -50px; /* 上に移動 */
+            z-index: 1;
         }
 
         .visual-catch {
-            width: 48%;
+            /* width: 48%; <- 変更前 */
+            width: 45%; /* 画像との被りを避けるため少し狭く */
             padding-bottom: 15px;
             z-index: 2;
         }
@@ -427,7 +440,7 @@
             letter-spacing: 0.05em;
         }
 
-        /* --- AI Tool Styles --- */
+        /* --- AI Tool Styles (変更なし) --- */
         .ai-fab {
             position: fixed;
             bottom: 30px;
@@ -609,7 +622,6 @@
 <body>
 
     <div class="page">
-        <!-- 1. Header -->
         <header class="header">
             <div class="news-badge">NEWS: リース制度開始</div><br>
             <div class="header-sub-copy">まとまった手元資金なしで導入可能！</div>
@@ -624,7 +636,6 @@
             </div>
         </header>
 
-        <!-- 2. Main Visual -->
         <div class="main-visual-container">
             <div class="visual-catch">
                 <h2>God-Cleaner GOLD</h2>
@@ -632,29 +643,27 @@
                     待望の『リース制度』が登場。
                 </p>
             </div>
-            <!-- Machine Image -->
-            <img class="product-image" src="top_copy.png" alt="God-Cleaner GOLD">
+            <img class="product-image" src="./top_copy.png" alt="God-Cleaner GOLD">
         </div>
 
-        <!-- 3. Visual Evidence -->
         <div class="evidence-section">
             <h3 class="evidence-title">▼ 視覚で感じるデトックスの衝撃！SNS集客にも効果的 ▼</h3>
             <div class="evidence-grid">
                 <div class="evidence-item">
                     <div class="evidence-img-box">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7495636351999822843" alt="泡">
+                        <img src="./evidence_1.jpg" alt="泡">
                     </div>
                     <span>反応：泡</span>
                 </div>
                 <div class="evidence-item">
                     <div class="evidence-img-box">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7495636351999822843" style="filter: brightness(1.2) sepia(0.3);" alt="白濁">
+                        <img src="./evidence_2.jpg" style="filter: brightness(1.2) sepia(0.3);" alt="白濁">
                     </div>
                     <span>反応：白濁</span>
                 </div>
                 <div class="evidence-item">
                     <div class="evidence-img-box">
-                        <img src="http://googleusercontent.com/image_collection/image_retrieval/7495636351999822843" style="filter: contrast(1.2) brightness(0.8);" alt="変色">
+                         <img src="./evidence_3.jpg" style="filter: contrast(1.2) brightness(0.8);" alt="変色">
                     </div>
                     <span>反応：変色</span>
                 </div>
@@ -662,7 +671,6 @@
             <p class="evidence-caption">※わずか30分で足が軽くなる感動を。<br>汚れの出方は体調や生活習慣により異なります。</p>
         </div>
 
-        <!-- 4. Merits -->
         <section class="merits-section">
             <h2 class="section-heading">選ばれる2つの理由</h2>
             <div class="merits-container">
@@ -691,9 +699,8 @@
             </div>
         </section>
 
-        <!-- 5. Footer / CTA -->
         <footer class="footer-section">
-            <img class="footer-bg-img" src="http://googleusercontent.com/image_collection/image_retrieval/1072845572810589762" alt="Salon Background">
+            <img class="footer-bg-img" src="./footer_bg.jpg" alt="Salon Background">
             
             <div class="footer-flex-wrapper">
                 <div class="footer-content">
@@ -717,17 +724,15 @@
                 </div>
             </div>
 
-            <div class="company-name">MindFitness., Co ltd.</div>
+            <div class="company-name">MindFitness.,Co ltd.</div>
         </footer>
     </div>
 
-    <!-- AI Tool Trigger -->
     <div class="ai-fab" id="aiFab">
         <i class="fa-solid fa-wand-magic-sparkles"></i>
     </div>
     <div class="ai-fab-tooltip">AI集客コピー作成</div>
 
-    <!-- AI Tool Modal -->
     <div class="ai-modal" id="aiModal">
         <div class="ai-modal-content">
             <span class="close-modal" id="closeModal">&times;</span>
@@ -756,6 +761,7 @@
     </div>
 
     <script type="module">
+        // Script部分は変更なしのため省略（元のコードと同じです）
         const apiKey = ""; // Set by runtime
 
         const aiFab = document.getElementById('aiFab');
@@ -849,5 +855,4 @@
         });
     </script>
 </body>
-
 </html>
