@@ -58,8 +58,6 @@
                 url('./top_copy.png'); 
             background-size: cover;
             background-position: center;
-            
-            /* 余白を少し詰めて全体を収める */
             padding: 45px 30px 35px;
             text-align: center;
             flex-shrink: 0;
@@ -102,7 +100,6 @@
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
             background: linear-gradient(to bottom, #f9f9f9, #fff);
-            /* 余白を調整して高さを節約 */
             padding: 15px 30px;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
@@ -130,7 +127,6 @@
         }
 
         .evidence-img-box {
-            /* フッターを入れるために画像を少し小さく調整 (130px -> 110px) */
             height: 110px;
             overflow: hidden;
             border: 2px solid white;
@@ -166,12 +162,11 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            /* 余白を調整 */
             padding: 10px 30px;
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
-            justify-content: center; /* 中央寄せ */
+            justify-content: center;
         }
 
         .section-heading {
@@ -252,7 +247,7 @@
             background-color: #FFF0F5;
             border-top: 3px solid var(--pink-accent);
             color: var(--text-dark);
-            padding: 15px 30px 10px; /* 下部余白を少し減らす */
+            padding: 15px 30px 10px;
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
@@ -260,11 +255,11 @@
 
         .footer-flex-wrapper {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
             position: relative;
             z-index: 1;
-            gap: 15px;
+            gap: 30px; 
         }
 
         .footer-bg-img {
@@ -281,7 +276,7 @@
         .footer-content {
             position: relative;
             z-index: 1;
-            width: 68%;
+            width: 60%; 
         }
 
         .footer-cta-title {
@@ -294,36 +289,54 @@
         .plans-box {
             background: rgba(255,255,255,0.8);
             border: 2px solid var(--gold-primary);
-            border-radius: 8px;
-            padding: 8px 10px;
-            margin-bottom: 10px;
-            display: block;
+            border-radius: 6px;
+            padding: 5px 15px;
+            margin-bottom: 12px;
+            display: inline-block; 
+            text-align: center;
+            position: relative;
+            overflow: visible;
         }
 
         .plans-title {
             font-size: 12px;
             font-weight: 900;
             color: var(--gold-dark);
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             border-bottom: 1px dotted #ccc;
-            padding-bottom: 2px;
+            padding-bottom: 0px;
             display: inline-block;
+            line-height: 1.2;
         }
         
         .plans-list {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
             color: #333;
-            margin-bottom: 2px;
+            margin: 2px 0;
+            line-height: 1.2;
         }
 
         .plans-note {
             font-size: 10px;
             color: var(--pink-accent);
             font-weight: 700;
-            text-align: right;
             margin: 0;
+            line-height: 1.2;
         }
+
+        /* --- 変更点: 矢印の位置をさらに右へ --- */
+        .guide-arrow {
+            position: absolute;
+            right: -45px; /* -28px から -45px に変更して距離を空ける */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: var(--pink-accent);
+            z-index: 10;
+            filter: drop-shadow(0 2px 3px rgba(255,255,255,0.8));
+        }
+        /* ------------------------------------ */
 
         .footer-text {
             font-size: 11px;
@@ -331,6 +344,8 @@
             margin-bottom: 8px;
             color: var(--text-dark);
             font-weight: 600;
+            display: block; 
+            clear: both;
         }
         
         .footer-contact-note {
@@ -362,7 +377,7 @@
         .qr-area {
             position: relative;
             z-index: 1;
-            width: 28%;
+            width: 35%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -372,23 +387,24 @@
             border-radius: 12px;
             border: 2px solid var(--pink-accent);
             box-shadow: 0 4px 10px rgba(233, 82, 142, 0.2);
+            margin-top: 10px;
         }
 
         .qr-placeholder {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: #eee;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 10px;
+            font-size: 11px;
             margin-bottom: 4px;
             border-radius: 4px;
         }
         
         .qr-label {
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
             text-align: center;
             color: var(--pink-accent);
@@ -400,7 +416,6 @@
             z-index: 1;
             text-align: center;
             margin-top: 8px;
-            /* 社名を大きく */
             font-size: 15px; 
             font-weight: 700;
             color: var(--text-dark);
@@ -664,6 +679,7 @@
                         <div class="plans-title">選べるプラン</div>
                         <div class="plans-list">1年プラン ・ 3年プラン ・ 5年プラン</div>
                         <div class="plans-note">計画に合わせてチョイス可能</div>
+                        <div class="guide-arrow"><i class="fa-solid fa-circle-arrow-right"></i></div>
                     </div>
 
                     <p class="footer-text">
