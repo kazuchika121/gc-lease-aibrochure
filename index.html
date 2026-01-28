@@ -59,7 +59,7 @@
             background-size: cover;
             background-position: center;
             
-            padding: 50px 30px 40px;
+            padding: 60px 30px 50px;
             text-align: center;
             flex-shrink: 0;
             color: var(--white); 
@@ -90,11 +90,10 @@
             margin: 0;
         }
 
-        /* 変更点: ゴールド色のハイライトに戻す */
+        /* ゴールド色のハイライト */
         .highlight-gold {
             color: var(--gold-primary); 
             font-size: 1.1em;
-            /* 以前の影の設定（黒っぽい影で文字を浮き立たせる） */
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
             display: inline-block;
             margin-bottom: 5px;
@@ -289,42 +288,40 @@
             margin: 0 0 10px 0;
         }
 
+        /* --- 追加: プラン情報のスタイル --- */
         .plans-box {
-            background: rgba(255,255,255,0.7);
-            border: 1px dashed var(--pink-accent);
+            background: rgba(255,255,255,0.8);
+            border: 2px solid var(--gold-primary); /* デザインに馴染むゴールド枠 */
             border-radius: 8px;
-            padding: 8px 12px;
+            padding: 10px 12px;
             margin-bottom: 12px;
-            display: inline-block;
+            display: block;
         }
 
         .plans-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-dark);
+            font-size: 12px;
+            font-weight: 900;
+            color: var(--gold-dark);
             margin-bottom: 5px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 2px;
+            display: inline-block;
         }
         
-        .plans-badges {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 3px;
-        }
-
-        .plan-badge {
-            background: var(--text-dark);
-            color: white;
-            font-size: 11px;
-            font-weight: bold;
-            padding: 3px 8px;
-            border-radius: 4px;
+        .plans-list {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2px;
         }
 
         .plans-note {
             font-size: 10px;
             color: var(--pink-accent);
             font-weight: 700;
+            text-align: right;
         }
+        /* ---------------------------------- */
 
         .footer-text {
             font-size: 11px;
@@ -401,10 +398,11 @@
             z-index: 1;
             text-align: center;
             margin-top: 10px;
-            font-size: 10px;
+            /* 変更点: 社名を大きく */
+            font-size: 15px; 
             font-weight: 700;
             color: var(--text-dark);
-            opacity: 0.8;
+            opacity: 0.9;
             letter-spacing: 0.05em;
         }
 
@@ -662,11 +660,7 @@
                     
                     <div class="plans-box">
                         <div class="plans-title">選べるプラン</div>
-                        <div class="plans-badges">
-                            <span class="plan-badge">1年プラン</span>
-                            <span class="plan-badge">3年プラン</span>
-                            <span class="plan-badge">5年プラン</span>
-                        </div>
+                        <div class="plans-list">1年プラン ・ 3年プラン ・ 5年プラン</div>
                         <div class="plans-note">計画に合わせてチョイス可能</div>
                     </div>
 
