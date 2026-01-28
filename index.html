@@ -51,23 +51,21 @@
             flex-direction: column;
         }
 
-        /* --- 変更点1: ヘッダーの黒色オーバーレイを軽減 --- */
+        /* ヘッダーエリア */
         .header-hero-bg {
             background-image: 
-                /* アルファ値を下げて暗さを軽減 (0.3/0.5 -> 0.2/0.4) */
                 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
                 url('./top_copy.png'); 
             background-size: cover;
             background-position: center;
             
-            padding: 50px 30px 30px;
+            padding: 50px 30px 40px;
             text-align: center;
             flex-shrink: 0;
             color: var(--white); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
             border-bottom: 5px solid var(--gold-primary);
         }
-        /* ------------------------------------------- */
 
         .news-badge {
             background: var(--gold-primary); 
@@ -76,36 +74,30 @@
             font-weight: 700;
             font-size: 16px;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             border-radius: 50px;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             text-shadow: none; 
         }
 
-        .header-sub-copy {
-            font-size: 20px;
-            color: var(--gold-light); 
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: block;
-        }
-
         .header-main-copy {
             font-family: 'Noto Serif JP', serif;
-            font-size: 36px; 
-            line-height: 1.4;
+            font-size: 38px; 
+            line-height: 1.5;
             color: var(--white);
             font-weight: 700;
             margin: 0;
         }
 
+        /* 変更点: ゴールド色のハイライトに戻す */
         .highlight-gold {
             color: var(--gold-primary); 
-            font-size: 1.15em;
-            background: none; 
-            padding: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
+            font-size: 1.1em;
+            /* 以前の影の設定（黒っぽい影で文字を浮き立たせる） */
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            display: inline-block;
+            margin-bottom: 5px;
         }
 
         /* 3. EVIDENCE IMAGES */
@@ -137,18 +129,15 @@
             text-align: center;
         }
 
-        /* --- 変更点2: 画像ボックスの角を丸くする --- */
         .evidence-img-box {
             height: 130px;
             overflow: hidden;
             border: 2px solid white;
-            /* border-radiusを追加して角を丸く */
             border-radius: 10px; 
             box-shadow: 0 3px 6px rgba(0,0,0,0.15);
             margin-bottom: 6px;
             background: #eee;
         }
-        /* --------------------------------------- */
 
         .evidence-img-box img {
             width: 100%;
@@ -212,7 +201,7 @@
             border-top: 4px solid var(--gold-primary);
             padding: 12px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
-            border-radius: 8px; /* メリットボックスも少し角丸に統一 */
+            border-radius: 8px;
         }
 
         .merit-header {
@@ -273,6 +262,7 @@
             justify-content: space-between;
             position: relative;
             z-index: 1;
+            gap: 20px;
         }
 
         .footer-bg-img {
@@ -296,13 +286,50 @@
             font-size: 18px;
             font-weight: 700;
             color: var(--pink-accent);
-            margin: 0 0 5px 0;
+            margin: 0 0 10px 0;
+        }
+
+        .plans-box {
+            background: rgba(255,255,255,0.7);
+            border: 1px dashed var(--pink-accent);
+            border-radius: 8px;
+            padding: 8px 12px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .plans-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+        
+        .plans-badges {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 3px;
+        }
+
+        .plan-badge {
+            background: var(--text-dark);
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .plans-note {
+            font-size: 10px;
+            color: var(--pink-accent);
+            font-weight: 700;
         }
 
         .footer-text {
             font-size: 11px;
             line-height: 1.4;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             color: var(--text-dark);
             font-weight: 600;
         }
@@ -343,7 +370,7 @@
             background: white;
             padding: 8px;
             color: #333;
-            border-radius: 12px; /* QRエリアも角丸を少し強調 */
+            border-radius: 12px;
             border: 2px solid var(--pink-accent);
             box-shadow: 0 4px 10px rgba(233, 82, 142, 0.2);
         }
@@ -566,13 +593,9 @@
         <header class="header-hero-bg">
             <div class="news-badge">NEWS: リース制度開始</div>
             
-            <div class="header-sub-copy">
-                まとまった手元資金なしで導入可能！
-            </div>
-            
             <h1 class="header-main-copy">
+                <span class="highlight-gold">少額資金でスタートできる</span><br>
                 デトックスサロン経営を<br>
-                <span class="highlight-gold">初期費用を抑えて</span><br>
                 始めませんか？
             </h1>
         </header>
@@ -636,6 +659,17 @@
             <div class="footer-flex-wrapper">
                 <div class="footer-content">
                     <h3 class="footer-cta-title">まずは収益シミュレーション！</h3>
+                    
+                    <div class="plans-box">
+                        <div class="plans-title">選べるプラン</div>
+                        <div class="plans-badges">
+                            <span class="plan-badge">1年プラン</span>
+                            <span class="plan-badge">3年プラン</span>
+                            <span class="plan-badge">5年プラン</span>
+                        </div>
+                        <div class="plans-note">計画に合わせてチョイス可能</div>
+                    </div>
+
                     <p class="footer-text">
                         スマホで簡単チェック。<br>
                         月間の【売上高】と【手取り利益】が自動計算されます。<br>
