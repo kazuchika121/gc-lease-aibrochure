@@ -259,7 +259,8 @@
             justify-content: space-between;
             position: relative;
             z-index: 1;
-            gap: 30px; 
+            /* 変更点: 間隔をさらに広げて等間隔感を出す */
+            gap: 40px; 
         }
 
         .footer-bg-img {
@@ -276,22 +277,26 @@
         .footer-content {
             position: relative;
             z-index: 1;
-            width: 60%; 
+            /* 変更点: 間隔を広げた分、幅を少し調整 */
+            width: 58%; 
         }
 
         .footer-cta-title {
-            font-size: 18px;
+            /* 変更点: 文字サイズを大きく */
+            font-size: 20px;
             font-weight: 700;
             color: var(--pink-accent);
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
         }
 
+        /* --- 変更点: プラン情報ボックス（全体的に拡大） --- */
         .plans-box {
             background: rgba(255,255,255,0.8);
             border: 2px solid var(--gold-primary);
             border-radius: 6px;
-            padding: 5px 15px;
-            margin-bottom: 12px;
+            /* パディングを増やして大きく */
+            padding: 8px 20px; 
+            margin-bottom: 15px;
             display: inline-block; 
             text-align: center;
             position: relative;
@@ -299,10 +304,11 @@
         }
 
         .plans-title {
-            font-size: 12px;
+            /* フォントサイズを少し大きく */
+            font-size: 13px;
             font-weight: 900;
             color: var(--gold-dark);
-            margin-bottom: 2px;
+            margin-bottom: 3px;
             border-bottom: 1px dotted #ccc;
             padding-bottom: 0px;
             display: inline-block;
@@ -310,28 +316,32 @@
         }
         
         .plans-list {
-            font-size: 14px;
+            /* フォントサイズを少し大きく */
+            font-size: 15px;
             font-weight: 700;
             color: #333;
-            margin: 2px 0;
+            margin: 3px 0;
             line-height: 1.2;
         }
 
         .plans-note {
-            font-size: 10px;
+            /* フォントサイズを少し大きく */
+            font-size: 11px;
             color: var(--pink-accent);
             font-weight: 700;
             margin: 0;
             line-height: 1.2;
         }
 
-        /* --- 変更点: 矢印の位置をさらに右へ --- */
+        /* --- 変更点: 誘導用矢印（拡大と位置調整） --- */
         .guide-arrow {
             position: absolute;
-            right: -45px; /* -28px から -45px に変更して距離を空ける */
+            /* ボックスが大きくなった分位置を調整 */
+            right: -40px; 
             top: 50%;
             transform: translateY(-50%);
-            font-size: 28px;
+            /* サイズを大きく */
+            font-size: 34px;
             color: var(--pink-accent);
             z-index: 10;
             filter: drop-shadow(0 2px 3px rgba(255,255,255,0.8));
