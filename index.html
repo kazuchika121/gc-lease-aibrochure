@@ -273,12 +273,13 @@
             z-index: 0;
         }
 
-        /* 変更点: 左側のコンテンツを右揃えにするため */
+        /* 変更点: 左側のコンテンツを左揃えに戻し、パディングで右にずらす */
         .footer-content {
             position: relative;
             z-index: 1;
             width: 58%; 
-            text-align: right; /* テキスト全体を右揃え */
+            text-align: left; /* 左揃えに戻す */
+            padding-left: 30px; /* 左に余白を設けて右にずらす */
         }
 
         .footer-cta-title {
@@ -361,14 +362,14 @@
             margin-bottom: 8px;
         }
 
-        /* 連絡先情報も右揃え配置に合わせる */
+        /* 連絡先情報も左揃えに戻す */
         .contact-info {
             font-size: 18px; /* 16px -> 18px */
             font-weight: 700;
             color: var(--text-dark);
             display: flex;
-            flex-direction: column; /* 縦並びにして右寄せしやすく */
-            align-items: flex-end; /* 右寄せ */
+            flex-direction: column; /* 縦並び */
+            align-items: flex-start; /* 左寄せ */
             gap: 5px;
         }
 
@@ -393,15 +394,10 @@
             margin-top: 10px;
         }
 
-        .qr-placeholder {
+        /* 変更点: QRコード画像を差し替え */
+        .qr-code-img {
             width: 80px;
             height: 80px;
-            background: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 11px;
             margin-bottom: 6px;
             border-radius: 4px;
         }
@@ -423,6 +419,7 @@
             display: block;
         }
 
+        /* 変更点: ロゴの表示位置調整 */
         .company-name {
             position: relative;
             z-index: 1;
@@ -708,7 +705,7 @@
                 </div>
 
                 <div class="qr-area">
-                    <div class="qr-placeholder">QR Code</div>
+                    <img class="qr-code-img" src="image_4.png" alt="QR Code">
                     <div class="qr-label">月々の収入を<br>チェック！</div>
                     <img class="simulation-img" src="simulation.png" alt="Simulation Image">
                 </div>
