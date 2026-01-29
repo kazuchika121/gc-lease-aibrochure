@@ -64,21 +64,25 @@
             color: var(--white); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
             border-bottom: 5px solid var(--gold-primary);
-            position: relative; /* 吹き出し配置用 */
+            position: relative; 
         }
 
-        /* --- 追加: 吹き出しスタイル --- */
+        /* --- 修正: 吹き出し（左傾け・トンマナ合わせ・位置調整） --- */
         .speech-bubble {
             background: rgba(255, 255, 255, 0.95);
             color: var(--text-dark);
-            border: 3px solid var(--pink-accent);
+            /* トンマナを合わせてゴールドの枠線に変更 */
+            border: 3px solid var(--gold-primary); 
             border-radius: 15px;
             padding: 10px 15px;
-            display: inline-block;
-            position: relative;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            text-shadow: none; /* 内部テキストの影を消す */
+            position: absolute; /* 絶対配置に変更 */
+            top: 25px; /* 上部からの位置 */
+            left: 30px; /* 左寄せ（機器に被らないように） */
+            transform: rotate(-5deg); /* 左に少し傾ける */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            text-shadow: none; 
+            z-index: 10;
+            max-width: 220px;
         }
 
         /* 吹き出しのしっぽ */
@@ -86,23 +90,24 @@
             content: '';
             position: absolute;
             bottom: -10px;
-            left: 50%;
+            left: 70%; /* しっぽの位置調整 */
             transform: translateX(-50%);
             border-width: 10px 10px 0;
             border-style: solid;
-            border-color: var(--pink-accent) transparent transparent transparent;
+            /* 枠線色に合わせる */
+            border-color: var(--gold-primary) transparent transparent transparent; 
         }
 
         .bubble-content {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
             line-height: 1.4;
             text-align: left;
         }
         
         .bubble-highlight {
-            color: var(--pink-accent);
-            font-size: 15px;
+            color: var(--purple-accent); /* アクセントカラー */
+            font-size: 14px;
             font-weight: 900;
             text-align: center;
             display: block;
@@ -124,6 +129,8 @@
             letter-spacing: 0.05em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
             text-shadow: none; 
+            /* 吹き出しと被らないよう少し右へずらすか、マージン調整 */
+            margin-left: 180px; 
         }
 
         .header-main-copy {
@@ -132,16 +139,21 @@
             line-height: 1.4;
             color: var(--white);
             font-weight: 700;
-            margin: 0;
+            margin: 15px 0 0 0; /* 吹き出しスペース確保 */
         }
 
+        /* --- 修正: ゴールド文字＋ハイライト --- */
         .highlight-gold {
             color: var(--gold-primary); 
             font-size: 1.1em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.8);
             display: inline-block;
             margin-bottom: 5px;
+            /* ハイライト（マーカー）追加 */
+            background: linear-gradient(transparent 65%, rgba(255, 255, 255, 0.3) 65%);
+            padding: 0 5px;
         }
+        /* ---------------------------------- */
 
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
@@ -308,8 +320,6 @@
             gap: 30px; 
         }
 
-        /* 背景画像を削除したのでCSSも削除 */
-
         .footer-content {
             position: relative;
             z-index: 1;
@@ -364,7 +374,6 @@
             line-height: 1.2;
         }
 
-        /* 矢印をさらに右へ */
         .guide-arrow {
             position: absolute;
             right: -75px; 
@@ -386,14 +395,13 @@
             clear: both;
         }
 
-        /* --- 追加: キーワード強調用クラス --- */
+        /* ハイライト用クラス */
         .highlight-marker {
-            background: linear-gradient(transparent 60%, #ffeb3b 60%); /* 黄色いマーカー風 */
-            color: #E9528E; /* 文字色をピンクに */
+            background: linear-gradient(transparent 60%, #ffeb3b 60%); 
+            color: #E9528E; 
             font-weight: 900;
             padding: 0 2px;
         }
-        /* ------------------------------------ */
         
         .footer-contact-note {
             font-size: 12px;
@@ -406,20 +414,31 @@
             margin-bottom: 8px;
         }
 
+        /* --- 修正: 連絡先情報のレイアウト変更 --- */
         .contact-info {
             font-size: 18px;
             font-weight: 700;
             color: var(--text-dark);
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
+            align-items: center; /* 横並び中央揃え */
+            gap: 10px; /* 間隔 */
         }
 
-        .contact-info i {
+        .contact-label {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .contact-number {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-number i {
             margin-right: 5px;
             color: var(--pink-accent);
         }
+        /* ------------------------------------- */
 
         .qr-area {
             position: relative;
@@ -451,7 +470,6 @@
             color: var(--pink-accent);
             line-height: 1.2;
             margin-bottom: 8px;
-            /* 変更点: 1行で表示 */
             white-space: nowrap; 
         }
 
@@ -658,8 +676,6 @@
 
     <div class="page">
         <header class="header-hero-bg">
-            <div class="news-badge">NEWS: リース制度開始</div>
-            
             <div class="speech-bubble">
                 <div class="bubble-content">
                     ・自宅サロンを始めたい<br>
@@ -668,6 +684,8 @@
                 <span class="bubble-highlight">という方に朗報</span>
             </div>
 
+            <div class="news-badge">NEWS: リース制度開始</div>
+            
             <h1 class="header-main-copy">
                 <span class="highlight-gold">少額資金でスタートできる</span><br>
                 デトックスサロン経営を<br>
@@ -748,8 +766,8 @@
                     <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
                     
                     <div class="contact-info">
-                        <div style="font-size: 13px; color: #555;">お問い合わせ</div>
-                        <span><i class="fa-solid fa-phone"></i> 0120-977-801</span>
+                        <span class="contact-label">お問い合わせ</span>
+                        <span class="contact-number"><i class="fa-solid fa-phone"></i> 0120-977-801</span>
                     </div>
                 </div>
 
