@@ -67,7 +67,7 @@
             position: relative; 
         }
 
-        /* --- 修正: 吹き出し（位置を戻し、しっぽを曲線的に） --- */
+        /* --- 修正: 吹き出し（位置はそのままでしっぽを元に戻す） --- */
         .speech-bubble {
             background: rgba(255, 255, 255, 0.95);
             color: var(--text-dark);
@@ -75,9 +75,9 @@
             border-radius: 18px;
             padding: 10px 15px;
             position: absolute; 
-            top: 25px; /* 位置を戻す */
-            left: 30px; /* 位置を戻す */
-            transform: rotate(-5deg); /* 傾きを戻す */
+            top: 25px; 
+            left: 30px; 
+            transform: rotate(-5deg);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             text-shadow: none; 
             z-index: 10;
@@ -85,36 +85,34 @@
             white-space: nowrap;
         }
 
-        /* 修正: 曲線的なしっぽ（外枠） */
+        /* 修正: シンプルな下向きのしっぽ（外枠） */
         .speech-bubble::after {
             content: '';
             position: absolute;
-            bottom: -12px; /* 位置調整 */
-            right: 20px; /* 右側に配置 */
-            border-width: 0 15px 20px 0;
+            bottom: -15px; /* 本体より下 */
+            left: 30%; /* 「少額」付近を指す位置 */
+            transform: translateX(-50%);
+            border-width: 15px 10px 0 10px; /* 逆三角形 */
             border-style: solid;
-            border-color: transparent var(--gold-primary) transparent transparent;
+            border-color: var(--gold-primary) transparent transparent transparent;
             display: block;
             width: 0;
             z-index: 1;
-            transform: rotate(15deg); /* 角度調整 */
-            border-bottom-right-radius: 50%; /* 曲線を作る */
         }
 
-        /* 修正: 曲線的なしっぽ（内側白抜き） */
+        /* 修正: シンプルな下向きのしっぽ（内側白抜き） */
         .speech-bubble::before {
             content: '';
             position: absolute;
-            bottom: -8px; /* 位置調整 */
-            right: 23px; /* 位置調整 */
-            border-width: 0 12px 16px 0;
+            bottom: -11px;
+            left: 30%;
+            transform: translateX(-50%);
+            border-width: 12px 8px 0 8px;
             border-style: solid;
-            border-color: transparent #fff transparent transparent;
+            border-color: #fff transparent transparent transparent;
             display: block;
             width: 0;
             z-index: 2;
-            transform: rotate(15deg); /* 角度調整 */
-            border-bottom-right-radius: 50%; /* 曲線を作る */
         }
         /* ------------------------------------------- */
 
@@ -164,7 +162,7 @@
             margin: 20px 0 0 0;
         }
 
-        /* --- 修正: マーカーをさらに細く --- */
+        /* 下半分だけの細い黄色マーカー */
         .highlight-gold {
             color: var(--gold-primary); 
             font-size: 1.1em;
@@ -173,12 +171,10 @@
             z-index: 1;
             display: inline-block;
             margin-bottom: 5px;
-            /* 透明部分を70%まで増やしてさらに細くする */
             background: linear-gradient(transparent 70%, rgba(255, 235, 59, 0.85) 70%);
             padding: 0 8px;
             border-radius: 4px;
         }
-        /* ---------------------------------- */
 
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
@@ -723,19 +719,19 @@
                     <div class="evidence-img-box">
                         <img src="evidence_1.jpg.png" alt="泡">
                     </div>
-                    <span>反応：泡</span>
+                    <span>反応：白色</span>
                 </div>
                 <div class="evidence-item">
                     <div class="evidence-img-box">
                         <img src="evidence_2.jpg.png" alt="反応">
                     </div>
-                    <span>反応：排出物</span>
+                    <span>反応：多量の泡</span>
                 </div>
                 <div class="evidence-item">
                     <div class="evidence-img-box">
                          <img src="evidence_3.jpg.png" alt="変色">
                     </div>
-                    <span>反応：変色</span>
+                    <span>反応：左右バランスの崩れ</span>
                 </div>
             </div>
             <p class="evidence-caption">※わずか30分で足が軽くなる感動を。<br>汚れの出方は体調や生活習慣により異なります。</p>
@@ -763,7 +759,7 @@
                     <ul class="merit-list">
                         <li><strong>初期費用削減</strong><br>まとまった資金がなくてもOK</li>
                         <li><strong>選べるプラン</strong><br>「3年プラン」等、計画に合わせて選択</li>
-                        <li><strong>リピート率UP</strong><br>回数券販売などで安定収益化</li>
+                        <li><strong>リピート率UP</strong><br>回数券販売で安定収益化</li>
                     </ul>
                 </div>
             </div>
