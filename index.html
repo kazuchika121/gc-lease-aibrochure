@@ -67,17 +67,18 @@
             position: relative; 
         }
 
-        /* --- 修正: 吹き出し（しっぽ右向き・形状変更） --- */
+        /* --- 修正: 吹き出し（位置調整・しっぽ下向き） --- */
         .speech-bubble {
             background: rgba(255, 255, 255, 0.95);
             color: var(--text-dark);
             border: 3px solid var(--gold-primary); 
-            border-radius: 18px; /* 丸みを増やす */
+            border-radius: 18px;
             padding: 10px 15px;
             position: absolute; 
-            top: 20px;
-            left: 20px;
-            transform: rotate(-3deg);
+            /* 位置をタイトルの左上付近に調整 */
+            top: 65px;
+            left: 50px;
+            transform: rotate(-2deg); /* 傾きを少し緩める */
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             text-shadow: none; 
             z-index: 10;
@@ -85,49 +86,48 @@
             white-space: nowrap;
         }
 
-        /* 修正: 右向きのしっぽ（添付資料風） */
+        /* 修正: 下向きのしっぽ（外枠） */
         .speech-bubble::after {
             content: '';
             position: absolute;
-            right: -18px; /* 右側に配置 */
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 10px 0 10px 18px;
+            bottom: -15px; /* 本体より下 */
+            left: 25%; /* 左寄りに配置して「少額」を指す */
+            transform: translateX(-50%);
+            border-width: 15px 10px 0 10px; /* 上辺が広い逆三角形 */
             border-style: solid;
-            border-color: transparent transparent transparent var(--gold-primary);
+            border-color: var(--gold-primary) transparent transparent transparent;
             display: block;
             width: 0;
             z-index: 1;
         }
 
-        /* しっぽの内側（白抜き） */
+        /* 修正: 下向きのしっぽ（内側白抜き） */
         .speech-bubble::before {
             content: '';
             position: absolute;
-            right: -14px; /* 位置調整 */
-            top: 50%;
-            transform: translateY(-50%);
-            border-width: 8px 0 8px 14px;
+            bottom: -11px; /* 位置を微調整して枠を残す */
+            left: 25%;
+            transform: translateX(-50%);
+            border-width: 12px 8px 0 8px;
             border-style: solid;
-            border-color: transparent transparent transparent #fff;
+            border-color: #fff transparent transparent transparent;
             display: block;
             width: 0;
             z-index: 2;
         }
+        /* ------------------------------------------- */
 
         .bubble-content {
             font-size: 11px;
             font-weight: 700;
-            line-height: 1.6; /* 行間を少し広げる */
+            line-height: 1.6;
             text-align: left;
         }
         
-        /* --- 追加: 吹き出し内テキストのピンクマーカー --- */
         .bubble-text-highlight {
-            background: linear-gradient(transparent 50%, rgba(233, 82, 142, 0.4) 50%); /* ピンクのマーカー */
+            background: linear-gradient(transparent 50%, rgba(233, 82, 142, 0.4) 50%);
             padding: 0 2px;
         }
-        /* ------------------------------------------- */
 
         .bubble-highlight {
             color: var(--purple-accent); 
@@ -139,7 +139,6 @@
             border-top: 1px dashed #ccc;
             padding-top: 5px;
         }
-        /* -------------------------------- */
 
         .news-badge {
             background: var(--gold-primary); 
@@ -161,10 +160,11 @@
             line-height: 1.4;
             color: var(--white);
             font-weight: 700;
-            margin: 20px 0 0 0;
+            /* 吹き出しとの間隔を確保 */
+            margin: 30px 0 0 0;
         }
 
-        /* --- 修正: マーカー風ハイライト（目立つ色に） --- */
+        /* --- 修正: マーカーを文字の下半分だけに --- */
         .highlight-gold {
             color: var(--gold-primary); 
             font-size: 1.1em;
@@ -173,15 +173,10 @@
             z-index: 1;
             display: inline-block;
             margin-bottom: 5px;
-            /* マーカー風デザインに変更 */
-            background: linear-gradient(transparent 40%, rgba(255, 235, 59, 0.85) 40%); /* より目立つ黄色 */
-            padding: 0 8px; /* パディング調整 */
+            /* 透明部分を60%まで増やして下半分のみにする */
+            background: linear-gradient(transparent 60%, rgba(255, 235, 59, 0.85) 60%);
+            padding: 0 8px;
             border-radius: 4px;
-        }
-
-        /* 以前の筆風スタイルを削除 */
-        .highlight-gold::before {
-            content: none;
         }
         /* ---------------------------------- */
 
