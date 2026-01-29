@@ -51,14 +51,14 @@
             flex-direction: column;
         }
 
-        /* ヘッダーエリア - 余白を少し詰めて高さを確保 */
+        /* ヘッダーエリア - 余白をさらに詰める */
         .header-hero-bg {
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
                 url('./top_copy.png'); 
             background-size: cover;
             background-position: center;
-            padding: 40px 30px 30px; /* 上下余白を微調整 */
+            padding: 35px 30px 25px; /* 上下余白を調整 */
             text-align: center;
             flex-shrink: 0;
             color: var(--white); 
@@ -73,7 +73,7 @@
             font-weight: 700;
             font-size: 16px;
             display: inline-block;
-            margin-bottom: 15px;
+            margin-bottom: 12px; /* マージン微調整 */
             border-radius: 50px;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -100,7 +100,7 @@
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
             background: linear-gradient(to bottom, #f9f9f9, #fff);
-            padding: 12px 30px; /* 余白削減 */
+            padding: 10px 30px; /* 余白を少し詰める */
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             flex-shrink: 0;
@@ -127,7 +127,7 @@
         }
 
         .evidence-img-box {
-            height: 100px; /* 高さを少し抑える */
+            height: 100px;
             overflow: hidden;
             border: 2px solid white;
             border-radius: 10px; 
@@ -162,7 +162,7 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            padding: 10px 30px;
+            padding: 8px 30px; /* 余白を詰める */
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
@@ -173,7 +173,7 @@
             text-align: center;
             font-size: 20px;
             color: var(--text-dark);
-            margin: 5px 0 10px 0;
+            margin: 5px 0 8px 0; /* マージンを詰める */
             font-family: 'Noto Serif JP', serif;
         }
 
@@ -196,7 +196,7 @@
             background: #fff;
             border: 1px solid #e0e0e0;
             border-top: 4px solid var(--gold-primary);
-            padding: 10px;
+            padding: 8px 10px; /* パディングを詰める */
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
             border-radius: 8px;
         }
@@ -247,7 +247,7 @@
             background-color: #FFF0F5;
             border-top: 3px solid var(--pink-accent);
             color: var(--text-dark);
-            padding: 15px 30px 10px;
+            padding: 12px 30px 8px; /* 余白を調整 */
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
@@ -259,7 +259,7 @@
             justify-content: space-between;
             position: relative;
             z-index: 1;
-            gap: 40px; 
+            gap: 30px; /* 左右の間隔を少し狭める */
         }
 
         .footer-bg-img {
@@ -273,19 +273,20 @@
             z-index: 0;
         }
 
+        /* 変更点: 左側の幅を少し狭める */
         .footer-content {
             position: relative;
             z-index: 1;
-            width: 58%; 
+            width: 52%; /* 58% -> 52% */
             text-align: left; 
-            padding-left: 30px; /* テキスト左揃え＋位置ずらし */
+            padding-left: 30px;
         }
 
         .footer-cta-title {
             font-size: 20px;
             font-weight: 700;
             color: var(--pink-accent);
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0; /* マージンを詰める */
         }
 
         .plans-box {
@@ -293,7 +294,7 @@
             border: 2px solid var(--gold-primary);
             border-radius: 6px;
             padding: 8px 20px; 
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* マージンを詰める */
             display: inline-block; 
             text-align: center;
             position: relative;
@@ -327,9 +328,10 @@
             line-height: 1.2;
         }
 
+        /* 変更点: 矢印をさらに右へ配置 */
         .guide-arrow {
             position: absolute;
-            right: -60px; /* ボックスからの距離を確保 */
+            right: -75px; /* -60px -> -75px へ変更 */
             top: 50%;
             transform: translateY(-50%);
             font-size: 34px;
@@ -341,7 +343,7 @@
         .footer-text {
             font-size: 13px;
             line-height: 1.5;
-            margin-bottom: 10px;
+            margin-bottom: 8px; /* マージンを詰める */
             color: var(--text-dark);
             font-weight: 700;
             display: block; 
@@ -374,10 +376,11 @@
             color: var(--pink-accent);
         }
 
+        /* 変更点: 右側の幅を広げて画像を大きくする */
         .qr-area {
             position: relative;
             z-index: 1;
-            width: 35%;
+            width: 42%; /* 35% -> 42% に拡大 */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -390,7 +393,7 @@
             margin-top: 5px;
         }
 
-        /* QRコード画像修正 */
+        /* QRコード画像 */
         .qr-code-img {
             width: 80px;
             height: 80px;
@@ -420,13 +423,13 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 8px; /* マージンを詰める */
             font-size: 15px; 
             font-weight: 700;
             color: var(--text-dark);
             opacity: 0.9;
             letter-spacing: 0.05em;
-            padding-bottom: 5px; /* 最下部余白 */
+            padding-bottom: 5px;
         }
 
         /* --- AI Tool Styles --- */
