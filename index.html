@@ -67,65 +67,77 @@
             position: relative; 
         }
 
-        /* --- 修正: 吹き出し（位置・形状変更） --- */
+        /* --- 修正: 吹き出し（しっぽ右向き・形状変更） --- */
         .speech-bubble {
             background: rgba(255, 255, 255, 0.95);
             color: var(--text-dark);
             border: 3px solid var(--gold-primary); 
-            border-radius: 12px;
-            padding: 8px 12px;
+            border-radius: 18px; /* 丸みを増やす */
+            padding: 10px 15px;
             position: absolute; 
-            top: 20px; /* 位置調整 */
-            left: 20px; /* 左寄せ */
-            transform: rotate(-3deg); /* 左に少し傾ける */
+            top: 20px;
+            left: 20px;
+            transform: rotate(-3deg);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             text-shadow: none; 
             z-index: 10;
             width: auto;
-            white-space: nowrap; /* テキストの折り返し禁止 */
+            white-space: nowrap;
         }
 
-        /* 修正: 湾曲したしっぽ */
-        .speech-bubble::before {
-            content: "";
+        /* 修正: 右向きのしっぽ（添付資料風） */
+        .speech-bubble::after {
+            content: '';
             position: absolute;
-            bottom: -15px; /* 本体より下に配置 */
-            left: 20%;
-            border-width: 0 0 15px 15px;
+            right: -18px; /* 右側に配置 */
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 10px 0 10px 18px;
             border-style: solid;
             border-color: transparent transparent transparent var(--gold-primary);
-            /* 曲線を作るための変形 */
-            transform: skewX(10deg) rotate(10deg); 
+            display: block;
+            width: 0;
+            z-index: 1;
         }
-        
-        /* しっぽの内側（白抜き用） */
-        .speech-bubble::after {
-            content: "";
+
+        /* しっぽの内側（白抜き） */
+        .speech-bubble::before {
+            content: '';
             position: absolute;
-            bottom: -10px; 
-            left: 21%;
-            border-width: 0 0 12px 12px;
+            right: -14px; /* 位置調整 */
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 8px 0 8px 14px;
             border-style: solid;
             border-color: transparent transparent transparent #fff;
-            transform: skewX(10deg) rotate(10deg);
+            display: block;
+            width: 0;
+            z-index: 2;
         }
 
         .bubble-content {
             font-size: 11px;
             font-weight: 700;
-            line-height: 1.4;
+            line-height: 1.6; /* 行間を少し広げる */
             text-align: left;
         }
         
+        /* --- 追加: 吹き出し内テキストのピンクマーカー --- */
+        .bubble-text-highlight {
+            background: linear-gradient(transparent 50%, rgba(233, 82, 142, 0.4) 50%); /* ピンクのマーカー */
+            padding: 0 2px;
+        }
+        /* ------------------------------------------- */
+
         .bubble-highlight {
             color: var(--purple-accent); 
             font-size: 13px;
             font-weight: 900;
             text-align: center;
             display: block;
-            margin-top: 2px;
+            margin-top: 5px;
             border-top: 1px dashed #ccc;
-            padding-top: 2px;
+            padding-top: 5px;
         }
         /* -------------------------------- */
 
@@ -135,8 +147,8 @@
             padding: 6px 20px;
             font-weight: 700;
             font-size: 16px;
-            display: inline-block; /* 中央寄せのためにinline-block維持 */
-            margin: 0 auto 15px auto; /* 修正: 中央配置 */
+            display: inline-block;
+            margin: 0 auto 15px auto;
             border-radius: 50px;
             letter-spacing: 0.05em;
             box-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -149,10 +161,10 @@
             line-height: 1.4;
             color: var(--white);
             font-weight: 700;
-            margin: 20px 0 0 0; /* 吹き出しとの間隔 */
+            margin: 20px 0 0 0;
         }
 
-        /* --- 修正: 筆で引いたようなハイライト --- */
+        /* --- 修正: マーカー風ハイライト（目立つ色に） --- */
         .highlight-gold {
             color: var(--gold-primary); 
             font-size: 1.1em;
@@ -161,21 +173,15 @@
             z-index: 1;
             display: inline-block;
             margin-bottom: 5px;
+            /* マーカー風デザインに変更 */
+            background: linear-gradient(transparent 40%, rgba(255, 235, 59, 0.85) 40%); /* より目立つ黄色 */
+            padding: 0 8px; /* パディング調整 */
+            border-radius: 4px;
         }
 
-        /* 擬似要素で筆跡を表現 */
+        /* 以前の筆風スタイルを削除 */
         .highlight-gold::before {
-            content: '';
-            position: absolute;
-            top: 55%; /* 下半分に配置 */
-            left: -5px;
-            right: -5px;
-            height: 40%;
-            background: rgba(255, 255, 255, 0.25); /* 半透明の白 */
-            z-index: -1;
-            transform: rotate(-1deg); /* 微妙に傾ける */
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* 不規則な形 */
-            box-shadow: 0 0 5px rgba(255,255,255,0.1);
+            content: none;
         }
         /* ---------------------------------- */
 
@@ -409,7 +415,6 @@
             filter: drop-shadow(0 2px 3px rgba(255,255,255,0.8));
         }
 
-        /* 修正: 行間調整で1行に収める */
         .footer-text {
             font-size: 13px;
             line-height: 1.5;
@@ -418,7 +423,7 @@
             font-weight: 700;
             display: block; 
             clear: both;
-            letter-spacing: -0.05em; /* 文字間を少し詰める */
+            letter-spacing: -0.05em; 
         }
 
         .highlight-marker {
@@ -444,12 +449,21 @@
             font-weight: 700;
             color: var(--text-dark);
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 2px;
+            align-items: center; 
+            gap: 10px; 
         }
 
-        .contact-info i {
+        .contact-label {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .contact-number {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-number i {
             margin-right: 5px;
             color: var(--pink-accent);
         }
@@ -692,8 +706,8 @@
         <header class="header-hero-bg">
             <div class="speech-bubble">
                 <div class="bubble-content">
-                    ・自宅サロンを始めたい<br>
-                    ・お店に新しくデトックスメニュー
+                    ・<span class="bubble-text-highlight">自宅サロンを始めたい</span><br>
+                    ・<span class="bubble-text-highlight">お店に新しくデトックスメニュー</span>
                 </div>
                 <span class="bubble-highlight">という方に朗報です!!</span>
             </div>
@@ -780,7 +794,8 @@
                     <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
                     
                     <div class="contact-info">
-                        <span class="contact-label">お問い合わせ <i class="fa-solid fa-phone" style="margin-left: 5px;"></i> 0120-977-801</span>
+                        <span class="contact-label">お問い合わせ</span>
+                        <span class="contact-number"><i class="fa-solid fa-phone"></i> 0120-977-801</span>
                     </div>
                 </div>
 
