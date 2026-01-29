@@ -259,7 +259,6 @@
             justify-content: space-between;
             position: relative;
             z-index: 1;
-            /* 変更点: 間隔をさらに広げて等間隔感を出す */
             gap: 40px; 
         }
 
@@ -274,27 +273,25 @@
             z-index: 0;
         }
 
+        /* 変更点: 左側のコンテンツを右揃えにするため */
         .footer-content {
             position: relative;
             z-index: 1;
-            /* 変更点: 間隔を広げた分、幅を少し調整 */
             width: 58%; 
+            text-align: right; /* テキスト全体を右揃え */
         }
 
         .footer-cta-title {
-            /* 変更点: 文字サイズを大きく */
             font-size: 20px;
             font-weight: 700;
             color: var(--pink-accent);
             margin: 0 0 10px 0;
         }
 
-        /* --- 変更点: プラン情報ボックス（全体的に拡大） --- */
         .plans-box {
             background: rgba(255,255,255,0.8);
             border: 2px solid var(--gold-primary);
             border-radius: 6px;
-            /* パディングを増やして大きく */
             padding: 8px 20px; 
             margin-bottom: 15px;
             display: inline-block; 
@@ -304,7 +301,6 @@
         }
 
         .plans-title {
-            /* フォントサイズを少し大きく */
             font-size: 13px;
             font-weight: 900;
             color: var(--gold-dark);
@@ -316,7 +312,6 @@
         }
         
         .plans-list {
-            /* フォントサイズを少し大きく */
             font-size: 15px;
             font-weight: 700;
             color: #333;
@@ -325,7 +320,6 @@
         }
 
         .plans-note {
-            /* フォントサイズを少し大きく */
             font-size: 11px;
             color: var(--pink-accent);
             font-weight: 700;
@@ -333,50 +327,49 @@
             line-height: 1.2;
         }
 
-        /* --- 変更点: 誘導用矢印（拡大と位置調整） --- */
+        /* 変更点: 矢印をさらに右へ */
         .guide-arrow {
             position: absolute;
-            /* ボックスが大きくなった分位置を調整 */
-            right: -40px; 
+            right: -60px; /* ボックスからの距離を広げる */
             top: 50%;
             transform: translateY(-50%);
-            /* サイズを大きく */
             font-size: 34px;
             color: var(--pink-accent);
             z-index: 10;
             filter: drop-shadow(0 2px 3px rgba(255,255,255,0.8));
         }
-        /* ------------------------------------ */
 
+        /* 変更点: 文字サイズを全体的に大きく */
         .footer-text {
-            font-size: 11px;
-            line-height: 1.4;
-            margin-bottom: 8px;
+            font-size: 13px; /* 11px -> 13px */
+            line-height: 1.5;
+            margin-bottom: 10px;
             color: var(--text-dark);
-            font-weight: 600;
+            font-weight: 700; /* 太字に */
             display: block; 
             clear: both;
         }
         
         .footer-contact-note {
-            font-size: 11px;
+            font-size: 12px; /* 11px -> 12px */
             font-weight: 700;
             color: var(--text-dark);
             background: rgba(255,255,255,0.6);
             padding: 2px 5px;
             border-radius: 4px;
             display: inline-block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
+        /* 連絡先情報も右揃え配置に合わせる */
         .contact-info {
-            font-size: 16px;
+            font-size: 18px; /* 16px -> 18px */
             font-weight: 700;
             color: var(--text-dark);
             display: flex;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 10px;
+            flex-direction: column; /* 縦並びにして右寄せしやすく */
+            align-items: flex-end; /* 右寄せ */
+            gap: 5px;
         }
 
         .contact-info i {
@@ -392,7 +385,7 @@
             flex-direction: column;
             align-items: center;
             background: white;
-            padding: 8px;
+            padding: 10px;
             color: #333;
             border-radius: 12px;
             border: 2px solid var(--pink-accent);
@@ -409,23 +402,32 @@
             justify-content: center;
             font-weight: bold;
             font-size: 11px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             border-radius: 4px;
         }
         
         .qr-label {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 700;
             text-align: center;
             color: var(--pink-accent);
             line-height: 1.2;
+            margin-bottom: 8px;
+        }
+
+        /* 変更点: シミュレーション画像のスタイル */
+        .simulation-img {
+            width: 100%;
+            border-radius: 6px; /* 四隅を少し丸く */
+            border: 1px solid #ddd;
+            display: block;
         }
 
         .company-name {
             position: relative;
             z-index: 1;
             text-align: center;
-            margin-top: 8px;
+            margin-top: 15px;
             font-size: 15px; 
             font-weight: 700;
             color: var(--text-dark);
@@ -700,7 +702,7 @@
                     <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
                     
                     <div class="contact-info">
-                        <div style="font-size: 11px; color: #555; width: 100%;">お問い合わせ: Mind Fitness Co., Ltd.</div>
+                        <div style="font-size: 13px; color: #555;">お問い合わせ: Mind Fitness Co., Ltd.</div>
                         <span><i class="fa-solid fa-phone"></i> 070-3103-8584</span>
                     </div>
                 </div>
@@ -708,6 +710,7 @@
                 <div class="qr-area">
                     <div class="qr-placeholder">QR Code</div>
                     <div class="qr-label">月々の収入を<br>チェック！</div>
+                    <img class="simulation-img" src="simulation.png" alt="Simulation Image">
                 </div>
             </div>
 
