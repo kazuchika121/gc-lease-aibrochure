@@ -154,6 +154,11 @@
             padding-top: 5px;
         }
 
+        /* 追加: 朗報の文字色 */
+        .text-pink {
+            color: var(--pink-accent);
+        }
+
         .news-badge {
             background: var(--gold-primary); 
             color: var(--white);
@@ -177,7 +182,7 @@
             margin: 20px 0 0 0;
         }
 
-        /* 下半分だけの細い黄色マーカー */
+        /* 下半分だけの細い黄色マーカー（幅を小さく変更） */
         .highlight-gold {
             color: var(--gold-primary); 
             font-size: 1.1em;
@@ -186,7 +191,8 @@
             z-index: 1;
             display: inline-block;
             margin-bottom: 5px;
-            background: linear-gradient(transparent 70%, rgba(255, 235, 59, 0.85) 70%);
+            /* 変更: 70% -> 85% にして幅を狭く */
+            background: linear-gradient(transparent 85%, rgba(255, 235, 59, 0.85) 85%);
             padding: 0 8px;
             border-radius: 4px;
         }
@@ -286,6 +292,7 @@
             gap: 15px;
         }
 
+        /* 変更: ボックス内のコンテンツを中央寄せ */
         .merit-box {
             background: #fff;
             border: 1px solid #e0e0e0;
@@ -293,11 +300,14 @@
             padding: 8px 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
             border-radius: 8px;
+            text-align: center; /* 追加 */
         }
 
+        /* 変更: ヘッダーを中央寄せ */
         .merit-header {
             display: flex;
             align-items: center;
+            justify-content: center; /* 追加 */
             margin-bottom: 6px;
             color: var(--text-dark);
         }
@@ -313,10 +323,13 @@
             font-weight: 700;
         }
 
+        /* 変更: リスト全体をインラインブロックにして中央配置 */
         .merit-list {
             margin: 0;
             padding: 0;
             list-style: none;
+            display: inline-block; /* 追加 */
+            text-align: left; /* 追加: リスト内のテキストは左揃えを維持 */
         }
 
         .merit-list li {
@@ -438,6 +451,15 @@
             font-weight: 900;
             padding: 0 2px;
         }
+
+        /* 追加: フッターの注釈とチェックテキストを横並びにするコンテナ */
+        .footer-notes-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
         
         .footer-contact-note {
             font-size: 12px;
@@ -447,7 +469,17 @@
             padding: 2px 5px;
             border-radius: 4px;
             display: inline-block;
-            margin-bottom: 8px;
+            margin-bottom: 0; /* 変更: コンテナで制御するため削除 */
+        }
+
+        /* 追加: 移動してきたテキストのスタイル */
+        .footer-check-note {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--pink-accent);
+            margin: 0;
+            display: flex;
+            align-items: center;
         }
 
         .contact-info {
@@ -497,6 +529,8 @@
             border-radius: 4px;
         }
         
+        /* 削除: .qr-label は移動したため不要 */
+        /*
         .qr-label {
             font-size: 12px;
             font-weight: 700;
@@ -505,6 +539,16 @@
             line-height: 1.2;
             margin-bottom: 8px;
             white-space: nowrap; 
+        }
+        */
+
+        /* 追加: シミュレーション画像の上のラベル */
+        .simulation-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-gray);
+            margin-bottom: 4px;
+            text-align: center;
         }
 
         .simulation-img {
@@ -537,11 +581,11 @@
                     ・<span class="bubble-text-highlight">自宅サロンを始めたい</span><br>
                     ・<span class="bubble-text-highlight">お店に新しくデトックスメニュー</span>
                 </div>
-                <span class="bubble-highlight">という方に朗報です!!</span>
+                <span class="bubble-highlight">という方に<span class="text-pink">朗報</span>です!!</span>
             </div>
 
             <div class="news-badge">NEWS: リース制度開始</div>
-            
+             
             <h1 class="header-main-copy">
                 <span class="highlight-gold">少額資金でスタートできる</span><br>
                 デトックスサロン経営を<br>
@@ -606,7 +650,7 @@
             <div class="footer-flex-wrapper">
                 <div class="footer-content">
                     <h3 class="footer-cta-title">まずは収益シミュレーション！</h3>
-                    
+                     
                     <div class="plans-box">
                         <div class="plans-title">選べるプラン</div>
                         <div class="plans-list">1年プラン ・ 3年プラン ・ 5年プラン</div>
@@ -619,8 +663,12 @@
                         月間の <span class="highlight-marker">【売上高】</span> と <span class="highlight-marker">【手取り利益】</span> が自動計算されます。<br>
                         すでに経営されている方も新メニュー追加で売上アップ！
                     </p>
-                    <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
                     
+                    <div class="footer-notes-container">
+                        <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
+                        <p class="footer-check-note">月々の収入をチェック！<i class="fa-solid fa-caret-right" style="color:var(--pink-accent); margin-left:4px;"></i></p>
+                    </div>
+                     
                     <div class="contact-info">
                         <span class="contact-label">お問い合わせ</span>
                         <span class="contact-number"><i class="fa-solid fa-phone"></i> 0120-977-801</span>
@@ -629,7 +677,7 @@
 
                 <div class="qr-area">
                     <img class="qr-code-img" src="gclpqr_code.png" alt="QR Code">
-                    <div class="qr-label">月々の収入をチェック！</div>
+                    <div class="simulation-label">▼ シミュレーションイメージ ▼</div>
                     <img class="simulation-img" src="simulation.png" alt="Simulation Image">
                 </div>
             </div>
