@@ -137,9 +137,8 @@
             text-align: left;
         }
         
-        /* 修正: 文字サイズをさらに大きく */
         .text-enlarge {
-            font-size: 1.6em; /* 1.3em -> 1.6em */
+            font-size: 1.6em;
             color: #E9528E; 
             font-weight: 900;
         }
@@ -187,7 +186,6 @@
             margin: 20px 0 0 0;
         }
 
-        /* 修正: マーカー削除 */
         .highlight-gold {
             position: relative;
             z-index: 1;
@@ -289,13 +287,12 @@
             margin: 5px auto 0;
         }
 
-        /* 修正: コンテナの幅を制限して狭める */
         .merits-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            max-width: 90%; /* 修正: 幅を90%に制限 */
-            margin: 0 auto; /* 修正: 中央寄せ */
+            gap: 25px; /* 修正: 間隔を広げる (15px -> 25px) */
+            max-width: 90%;
+            margin: 0 auto;
         }
 
         .merit-box {
@@ -531,10 +528,9 @@
             width: 35%;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* 画像を下揃えに */
+            justify-content: flex-end; 
         }
 
-        /* 修正: 画像枠内に文字を入れるためコンテナを相対配置に */
         .simulation-img-container {
             width: 100%;
             height: 100%;
@@ -542,12 +538,11 @@
             border-radius: 8px;
             border: 2px solid var(--gold-primary);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            overflow: hidden; /* 中身がはみ出ないように */
+            overflow: hidden; 
             display: flex;
             flex-direction: column;
         }
 
-        /* 修正: 枠内の見出しデザイン */
         .simulation-inner-header {
             background: var(--pink-accent);
             color: white;
@@ -561,9 +556,9 @@
 
         .simulation-img {
             width: 100%;
-            height: 100%; /* 残りの高さを埋める */
-            object-fit: cover; /* 枠全体をカバー */
-            object-position: top center;
+            height: 100%;
+            object-fit: contain; /* 修正: 全体が表示されるように変更 */
+            object-position: center; /* 修正: 中央寄せ */
             display: block;
         }
 
@@ -675,7 +670,7 @@
                     
                     <div class="contact-qr-wrapper">
                         <div class="contact-left">
-                            <p class="footer-contact-note">資料等お問合せの方は右のQRよりお問合せください</p>
+                            <p class="footer-contact-note">シミュレーション、詳細資料ご希望の方は右のQRよりお問合せください</p>
                             <div class="contact-info">
                                 <span class="contact-label">TEL</span>
                                 <span class="contact-number"><i class="fa-solid fa-phone"></i> 0120-977-801</span>
