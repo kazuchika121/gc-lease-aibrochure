@@ -137,14 +137,15 @@
             text-align: left;
         }
         
-        /* 修正: 自宅サロン強調用クラス */
+        /* 修正: 文字サイズをさらに大きく */
         .text-enlarge {
-            font-size: 1.3em;
-            color: #E9528E; /* 少し色味も付けて強調 */
+            font-size: 1.6em; /* 1.3em -> 1.6em */
+            color: #E9528E; 
+            font-weight: 900;
         }
 
         .bubble-text-highlight {
-            background: linear-gradient(transparent 50%, rgba(233, 82, 142, 0.15) 50%); /* 背景色は少し薄く調整 */
+            background: linear-gradient(transparent 50%, rgba(233, 82, 142, 0.15) 50%);
             padding: 0 2px;
         }
 
@@ -186,7 +187,7 @@
             margin: 20px 0 0 0;
         }
 
-        /* 修正: 斜めマーカーの実装（PDF線対策版） */
+        /* 修正: マーカー削除 */
         .highlight-gold {
             position: relative;
             z-index: 1;
@@ -196,22 +197,7 @@
             color: var(--gold-primary); 
             font-size: 1.1em;
             text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-            background: none; /* 背景画像は削除 */
-        }
-
-        /* 擬似要素で斜めの矩形を描画 */
-        .highlight-gold::before {
-            content: '';
-            position: absolute;
-            top: 45%; /* 文字の下半分くらいにかかる位置 */
-            left: 0;
-            width: 100%;
-            height: 55%; /* マーカーの太さ */
-            background: rgba(255, 235, 59, 0.9); /* 黄色 */
-            transform: skewY(-2deg); /* 斜めに歪ませる */
-            z-index: -1;
-            border-radius: 2px;
-            box-shadow: 0 0 2px rgba(255, 235, 59, 0.5); /* 馴染ませる */
+            background: none; 
         }
 
         /* 3. EVIDENCE IMAGES */
@@ -303,10 +289,13 @@
             margin: 5px auto 0;
         }
 
+        /* 修正: コンテナの幅を制限して狭める */
         .merits-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 15px;
+            max-width: 90%; /* 修正: 幅を90%に制限 */
+            margin: 0 auto; /* 修正: 中央寄せ */
         }
 
         .merit-box {
@@ -390,16 +379,14 @@
             text-align: left; 
         }
 
-        /* 修正: タイトルを少し右に移動 */
         .footer-cta-title {
             font-size: 20px;
             font-weight: 700;
             color: var(--pink-accent);
             margin: 0 0 8px 0;
-            margin-left: 20px; /* 追加 */
+            margin-left: 20px; 
         }
 
-        /* 修正: プランボックスを少し右に移動 */
         .plans-box {
             background: rgba(255,255,255,0.8);
             border: 2px solid var(--gold-primary);
@@ -410,7 +397,7 @@
             text-align: center;
             position: relative;
             overflow: visible;
-            margin-left: 20px; /* 追加 */
+            margin-left: 20px; 
         }
 
         .plans-title {
@@ -544,53 +531,48 @@
             width: 35%;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
+            justify-content: flex-end; /* 画像を下揃えに */
         }
 
-        .simulation-label-large {
-            width: 100%;
-            background: var(--pink-accent);
-            color: white;
-            font-size: 16px;
-            font-weight: 900;
-            text-align: center;
-            padding: 8px 0;
-            border-radius: 8px;
-            margin-bottom: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            border: 2px solid white;
-            letter-spacing: 0.05em;
-        }
-
+        /* 修正: 画像枠内に文字を入れるためコンテナを相対配置に */
         .simulation-img-container {
             width: 100%;
-            flex-grow: 1; 
+            height: 100%;
             background: white;
-            padding: 5px;
             border-radius: 8px;
             border: 2px solid var(--gold-primary);
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden; /* 中身がはみ出ないように */
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* 修正: 枠内の見出しデザイン */
+        .simulation-inner-header {
+            background: var(--pink-accent);
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            padding: 4px 0;
+            line-height: 1.2;
+            flex-shrink: 0;
         }
 
         .simulation-img {
             width: 100%;
-            height: 100%;
-            object-fit: contain; 
-            border-radius: 4px;
+            height: 100%; /* 残りの高さを埋める */
+            object-fit: cover; /* 枠全体をカバー */
+            object-position: top center;
             display: block;
         }
 
-        /* 修正: 社名サイズ拡大 */
         .company-name {
             position: relative;
             z-index: 1;
             text-align: center;
             margin-top: 10px;
-            font-size: 19px; /* 15px -> 19px に変更 */
+            font-size: 19px; 
             font-weight: 700;
             color: var(--text-dark);
             opacity: 0.9;
@@ -709,10 +691,8 @@
                 </div>
 
                 <div class="simulation-area">
-                    <div class="simulation-label-large">
-                        シミュレーションイメージ
-                    </div>
                     <div class="simulation-img-container">
+                        <div class="simulation-inner-header">シミュレーションイメージ</div>
                         <img class="simulation-img" src="simulation.png" alt="Simulation Image">
                     </div>
                 </div>
