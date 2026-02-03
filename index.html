@@ -50,20 +50,29 @@
             display: flex;
             flex-direction: column;
             margin: 20px auto;
+            /* 1ページに確実に収めるための全体調整 */
+            transform: scale(0.98); 
+            transform-origin: top center;
         }
 
         /* 印刷時の設定 */
         @media print {
+            @page {
+                size: A4;
+                margin: 0;
+            }
             body {
                 background: none;
                 margin: 0;
                 padding: 0;
+                height: 100%;
             }
             .page {
                 margin: 0;
                 box-shadow: none;
                 width: 100%;
                 height: 100%;
+                transform: none; /* 印刷時はブラウザの倍率設定に任せるか、必要に応じて微調整 */
             }
         }
 
@@ -263,7 +272,7 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            padding: 25px 30px 5px;
+            padding: 25px 30px 5px; /* 上部パディングで位置調整 */
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
@@ -445,7 +454,7 @@
             text-align: left;
             width: 100%;
             max-width: 100%;
-            padding-left: 45px; /* 修正: 25px -> 45px */
+            padding-left: 45px; /* 左余白を45pxに調整 */
         }
 
         .highlight-marker {
