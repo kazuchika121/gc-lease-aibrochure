@@ -72,25 +72,47 @@
                 box-shadow: none;
                 width: 100%;
                 height: 100%;
-                transform: none; /* 印刷時はブラウザの倍率設定に任せるか、必要に応じて微調整 */
+                transform: none; 
             }
         }
 
-        /* ヘッダーエリア */
+        /* ヘッダーエリア - PDF対策済み構造 */
         .header-hero-bg {
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), 
-                url('./top_copy.png'); 
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+            position: relative; /* 子要素の基準点 */
             padding: 30px 30px 20px;
             text-align: center;
             flex-shrink: 0;
             color: var(--white); 
             text-shadow: 0 2px 4px rgba(0,0,0,0.5); 
             border-bottom: 5px solid var(--gold-primary);
-            position: relative; 
+            overflow: hidden; /* 画像のはみ出し防止 */
+        }
+
+        /* 背景画像レイヤー（CSS背景ではなくimgタグで配置） */
+        .header-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .header-bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        /* 黒フィルターレイヤー（グラデーションの代わりに単色透過で安定化） */
+        .header-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.35); /* 35%の黒 */
+            z-index: 1;
         }
 
         /* --- 吹き出し設定 --- */
@@ -106,7 +128,7 @@
             transform: rotate(-5deg);
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
             text-shadow: none; 
-            z-index: 10;
+            z-index: 10; /* 画像より上に */
             width: auto;
             white-space: nowrap;
         }
@@ -173,6 +195,8 @@
         }
 
         .news-badge {
+            position: relative; /* z-indexを効かせるため */
+            z-index: 2;
             background: var(--gold-primary); 
             color: var(--white);
             padding: 5px 18px;
@@ -187,6 +211,8 @@
         }
 
         .header-main-copy {
+            position: relative; /* z-indexを効かせるため */
+            z-index: 2;
             font-family: 'Noto Serif JP', serif;
             font-size: 34px; 
             line-height: 1.4;
@@ -195,7 +221,6 @@
             margin: 35px 0 0 0;
         }
 
-        /* 修正: マーカーラインを追加 */
         .highlight-gold {
             position: relative;
             z-index: 1;
@@ -595,6 +620,11 @@
 
     <div class="page">
         <header class="header-hero-bg">
+            <div class="header-bg-image">
+                <img src="./top_copy.png" alt="背景画像">
+            </div>
+            <div class="header-bg-overlay"></div>
+
             <div class="speech-bubble">
                 <div class="bubble-content">
                     ・<span class="bubble-text-highlight"><span class="text-enlarge">自宅サロン</span>を始めたい</span><br>
