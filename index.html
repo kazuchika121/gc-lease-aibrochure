@@ -201,8 +201,7 @@
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
             background: linear-gradient(to bottom, #f9f9f9, #fff);
-            /* 修正: 下部パディングを少し戻して余裕を持たせる */
-            padding: 8px 30px 10px; 
+            padding: 8px 30px 0;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             flex-shrink: 0;
@@ -264,8 +263,7 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            /* 修正: 上下パディングを増やして、位置を下に下げ、ゆとりを持たせる */
-            padding: 15px 30px;
+            padding: 0 30px;
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
@@ -356,20 +354,18 @@
             background-color: #FFF0F5;
             border-top: 3px solid var(--pink-accent);
             color: var(--text-dark);
-            /* 修正: パディングを大幅に増やしてゆとりを持たせ、エリアを拡大 */
-            padding: 25px 30px 20px;
+            padding: 12px 30px 5px;
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
-            /* 修正: 上マージンをなくして上に詰める（パディングで調整） */
-            margin-top: 0;
+            margin-top: 10px; 
         }
 
         .footer-cta-title {
             font-size: 21px; 
             font-weight: 700;
             color: var(--pink-accent);
-            margin: 0 0 15px 0; /* 下マージンも少し増やす */
+            margin: 0 0 10px 0;
             text-align: center;
         }
 
@@ -378,7 +374,7 @@
             align-items: flex-start;
             justify-content: center;
             gap: 20px;
-            margin-bottom: 15px; /* 下マージンを増やす */
+            margin-bottom: 8px;
         }
 
         .plans-text-wrapper {
@@ -398,7 +394,7 @@
             justify-content: center;
             align-items: center;
             position: relative;
-            margin-bottom: 12px; /* マージンを少し増やす */
+            margin-bottom: 8px;
             width: 100%;
             max-width: 320px;
         }
@@ -439,15 +435,17 @@
             color: var(--pink-accent);
         }
 
+        /* 修正: 左余白を追加して右へずらす */
         .footer-text-left {
             font-size: 12px;
-            line-height: 1.5; /* 行間を少し広げる */
+            line-height: 1.4;
             color: var(--text-dark);
             font-weight: 700;
             display: block; 
             text-align: left;
             width: 100%;
             max-width: 100%;
+            padding-left: 15px; /* 追加: 右へずらす */
         }
 
         .highlight-marker {
@@ -494,16 +492,17 @@
             background: #fff;
         }
 
+        /* 修正: 枠組みを狭める */
         .contact-qr-wrapper {
             display: flex;
             align-items: center;
             justify-content: center; 
             gap: 5px; 
             background: rgba(255,255,255,0.7);
-            padding: 8px 20px; /* パディングを少し増やす */
+            padding: 4px 10px; /* 修正: 上下左右のpaddingを減らして枠を狭める */
             border-radius: 10px;
             border: 2px solid #ddd;
-            width: 98%; 
+            width: 88%; /* 修正: 幅を98%->88%に狭める */
             margin: 0 auto;
         }
 
@@ -571,8 +570,8 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            margin-top: 10px; /* マージンを戻す */
-            font-size: 14px; 
+            margin-top: 5px; 
+            font-size: 16px; /* 修正: 少し拡大 14px -> 16px */
             font-weight: 700;
             color: var(--text-dark);
             opacity: 0.9;
