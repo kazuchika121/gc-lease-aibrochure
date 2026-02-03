@@ -92,7 +92,6 @@
             border-radius: 18px;
             padding: 8px 15px; 
             position: absolute; 
-            /* 修正: 左端が切れないよう位置調整 */
             top: 15px; 
             left: 25px; 
             transform: rotate(-5deg);
@@ -184,7 +183,6 @@
             line-height: 1.4;
             color: var(--white);
             font-weight: 700;
-            /* 修正: 吹き出しと被らないようマージンを確保 */
             margin: 35px 0 0 0;
         }
 
@@ -203,7 +201,8 @@
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
             background: linear-gradient(to bottom, #f9f9f9, #fff);
-            padding: 8px 30px;
+            /* 修正: 下部paddingを0にして次のセクションとの距離を詰める */
+            padding: 8px 30px 0;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             flex-shrink: 0;
@@ -265,12 +264,10 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            /* 修正: 上部のpaddingを減らして上に配置 */
-            padding: 5px 30px;
+            padding: 0 30px;
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
-            /* 修正: コンテンツを上揃えに変更 */
             justify-content: flex-start; 
         }
 
@@ -278,7 +275,7 @@
             text-align: center;
             font-size: 19px;
             color: var(--text-dark);
-            /* 修正: 上マージンを削除 */
+            /* 修正: マージンを0にして上に詰める */
             margin: 0 0 8px 0;
             font-family: 'Noto Serif JP', serif;
         }
@@ -382,9 +379,8 @@
             margin-bottom: 8px;
         }
 
-        /* 修正: 幅を広げてテキストの折り返しを防ぐ */
         .plans-text-wrapper {
-            width: 56%; /* 50% -> 56% */
+            width: 56%;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -441,7 +437,6 @@
             color: var(--pink-accent);
         }
 
-        /* 修正: 最大幅制限を解除して一行で表示できるようにする */
         .footer-text-left {
             font-size: 12px;
             line-height: 1.4;
@@ -450,7 +445,7 @@
             display: block; 
             text-align: left;
             width: 100%;
-            max-width: 100%; /* 制限解除 */
+            max-width: 100%;
         }
 
         .highlight-marker {
@@ -460,9 +455,8 @@
             padding: 0 2px;
         }
 
-        /* 修正: 画像エリアの幅を少し縮小 */
         .simulation-area {
-            width: 41%; /* 45% -> 41% */
+            width: 41%;
             display: flex;
             flex-direction: column;
         }
@@ -498,10 +492,12 @@
             background: #fff;
         }
 
+        /* 修正: 連絡先エリアの調整 */
         .contact-qr-wrapper {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center; /* 中央寄せ */
+            gap: 5px; /* 修正: 隙間を減らす (20px -> 5px) */
             background: rgba(255,255,255,0.7);
             padding: 5px 20px; 
             border-radius: 10px;
@@ -510,10 +506,10 @@
             margin: 0 auto;
         }
 
-        /* 修正: 左側余白を追加して右へずらす */
+        /* 修正: 左側余白を追加して全体を右にずらす */
         .contact-left {
-            flex: 1;
-            padding-left: 20px; /* 追加 */
+            flex: unset; 
+            padding-left: 40px; /* 余白追加 */
         }
         
         .footer-contact-note {
