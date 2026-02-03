@@ -201,7 +201,7 @@
         /* 3. EVIDENCE IMAGES */
         .evidence-section {
             background: linear-gradient(to bottom, #f9f9f9, #fff);
-            padding: 8px 30px 0;
+            padding: 8px 30px 5px;
             border-top: 1px solid #eee;
             border-bottom: 1px solid #eee;
             flex-shrink: 0;
@@ -263,7 +263,8 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            padding: 0 30px;
+            /* 修正: 上部に余白(padding-top)を追加して下に下げる */
+            padding: 25px 30px 5px;
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
@@ -290,7 +291,8 @@
         .merits-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px; 
+            /* 修正: Gapを少し狭めて縦幅を節約し、下のスペースを確保 */
+            gap: 30px; 
             max-width: 98%;
             margin: 0 auto;
         }
@@ -354,11 +356,11 @@
             background-color: #FFF0F5;
             border-top: 3px solid var(--pink-accent);
             color: var(--text-dark);
-            padding: 12px 30px 5px;
+            padding: 12px 30px 20px; /* 修正: 下のパディングを増やしてゆとりを作る */
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
-            margin-top: 10px; 
+            margin-top: 0; /* 修正: 上マージンをなくして全体を上に寄せる */
         }
 
         .footer-cta-title {
@@ -435,7 +437,6 @@
             color: var(--pink-accent);
         }
 
-        /* 修正: 左余白を追加して右へずらす */
         .footer-text-left {
             font-size: 12px;
             line-height: 1.4;
@@ -445,7 +446,7 @@
             text-align: left;
             width: 100%;
             max-width: 100%;
-            padding-left: 15px; /* 追加: 右へずらす */
+            padding-left: 15px;
         }
 
         .highlight-marker {
@@ -492,23 +493,26 @@
             background: #fff;
         }
 
-        /* 修正: 枠組みを狭める */
         .contact-qr-wrapper {
             display: flex;
             align-items: center;
             justify-content: center; 
             gap: 5px; 
             background: rgba(255,255,255,0.7);
-            padding: 4px 10px; /* 修正: 上下左右のpaddingを減らして枠を狭める */
+            padding: 5px 20px; 
             border-radius: 10px;
             border: 2px solid #ddd;
-            width: 88%; /* 修正: 幅を98%->88%に狭める */
+            /* 修正: 幅を縮小 (98% -> 78%) */
+            width: 78%; 
             margin: 0 auto;
+            /* 修正: 右側にパディングを追加して、中身を左寄りに見せる */
+            padding-right: 40px; 
         }
 
         .contact-left {
             flex: unset; 
-            padding-left: 40px; 
+            /* 修正: 左パディングを減らす */
+            padding-left: 10px; 
         }
         
         .footer-contact-note {
@@ -570,8 +574,8 @@
             position: relative;
             z-index: 1;
             text-align: center;
-            margin-top: 5px; 
-            font-size: 16px; /* 修正: 少し拡大 14px -> 16px */
+            margin-top: 15px; 
+            font-size: 18px; /* 修正: 拡大 */
             font-weight: 700;
             color: var(--text-dark);
             opacity: 0.9;
