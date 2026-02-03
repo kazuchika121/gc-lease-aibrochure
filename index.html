@@ -195,6 +195,7 @@
             margin: 35px 0 0 0;
         }
 
+        /* 修正: マーカーラインを追加 */
         .highlight-gold {
             position: relative;
             z-index: 1;
@@ -204,7 +205,7 @@
             color: var(--gold-primary); 
             font-size: 1.1em;
             text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-            background: none; 
+            background: linear-gradient(transparent 60%, #ffeb3b 60%);
         }
 
         /* 3. EVIDENCE IMAGES */
@@ -272,7 +273,7 @@
 
         /* 4. MERITS SECTION */
         .merits-section {
-            padding: 25px 30px 5px; /* 上部パディングで位置調整 */
+            padding: 25px 30px 5px; 
             flex-grow: 1; 
             display: flex;
             flex-direction: column;
@@ -454,7 +455,7 @@
             text-align: left;
             width: 100%;
             max-width: 100%;
-            padding-left: 45px; /* 左余白を45pxに調整 */
+            padding-left: 45px; 
         }
 
         .highlight-marker {
