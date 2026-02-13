@@ -306,4 +306,442 @@
 
         .section-heading {
             text-align: center;
-            font-size
+            font-size: 19px;
+            color: var(--text-dark);
+            margin: 0 0 8px 0;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        .section-heading::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: var(--gold-primary);
+            margin: 4px auto 0;
+        }
+
+        .merits-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px; 
+            max-width: 98%;
+            margin: 0 auto;
+            margin-top: 10px; 
+        }
+
+        .merit-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-top: 4px solid var(--gold-primary);
+            padding: 8px 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .merit-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .merit-icon {
+            font-size: 18px;
+            color: var(--gold-primary);
+            margin-right: 6px;
+        }
+
+        .merit-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .merit-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .merit-list li {
+            font-size: 11px;
+            margin-bottom: 3px;
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.3;
+            color: var(--text-gray);
+        }
+
+        .merit-list li::before {
+            content: '✔';
+            color: var(--pink-accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* 5. FOOTER / CTA */
+        .footer-section {
+            background-color: #FFF0F5;
+            border-top: 3px solid var(--pink-accent);
+            color: var(--text-dark);
+            padding: 12px 30px 20px;
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            margin-top: 0;
+        }
+
+        .footer-cta-title {
+            font-size: 21px; 
+            font-weight: 700;
+            color: var(--pink-accent);
+            margin: 0 0 15px 0; 
+            text-align: center;
+        }
+
+        .footer-content-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 15px; 
+            margin-bottom: 15px; 
+        }
+
+        .plans-text-wrapper {
+            width: 56%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plans-box {
+            background: rgba(255,255,255,0.8);
+            border: 2px solid var(--gold-primary);
+            border-radius: 6px;
+            padding: 10px 40px 10px 20px;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-bottom: 12px; 
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .plans-title {
+            font-size: 13px;
+            font-weight: 900;
+            color: var(--gold-dark);
+            margin-bottom: 4px;
+            border-bottom: 1px dotted #ccc;
+            display: inline-block;
+            line-height: 1;
+        }
+        
+        /* 修正: 価格表示リスト用のカスタムスタイルを追加 */
+        .plans-list-custom {
+            font-size: 13px;
+            font-weight: 700;
+            color: #333;
+            margin: 6px 0;
+            line-height: 1.4;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+            width: 100%;
+            padding-left: 10px;
+        }
+
+        .plans-note {
+            font-size: 11px;
+            color: var(--pink-accent);
+            font-weight: 700;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .guide-arrow-inner {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: var(--pink-accent);
+        }
+
+        .footer-text-left {
+            font-size: 12px;
+            line-height: 1.5; 
+            color: var(--text-dark);
+            font-weight: 700;
+            display: block; 
+            text-align: left;
+            width: 100%;
+            max-width: 100%;
+            padding-left: 45px; 
+        }
+
+        .highlight-marker {
+            background: linear-gradient(transparent 60%, #ffeb3b 60%); 
+            color: #E9528E; 
+            font-weight: 900;
+            padding: 0 2px;
+        }
+
+        .simulation-area {
+            width: 41%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .simulation-img-container {
+            width: 100%;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden; 
+            display: flex;
+            flex-direction: column;
+            aspect-ratio: 16 / 9;
+        }
+
+        .simulation-inner-header {
+            background: var(--pink-accent);
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            padding: 3px 0;
+            flex-shrink: 0;
+        }
+
+        .simulation-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            background: #fff;
+        }
+
+        .contact-qr-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center; 
+            gap: 5px; 
+            background: rgba(255,255,255,0.7);
+            padding: 5px 20px; 
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            width: 78%; 
+            margin: 0 auto;
+            padding-right: 40px; 
+        }
+
+        .contact-left {
+            flex: unset; 
+            padding-left: 10px;
+            margin-top: -3px; 
+        }
+        
+        .footer-contact-note {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .contact-info {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center; 
+            justify-content: flex-start; 
+            gap: 5px; 
+        }
+
+        .contact-number i {
+            margin-right: 5px;
+            color: var(--pink-accent);
+        }
+        
+        .qr-box-small {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-left: 2px dotted #ccc;
+            padding-left: 10px;
+            margin-left: 10px;
+        }
+
+        .qr-code-img-small {
+            width: 55px; 
+            height: 55px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+
+        .qr-check-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--pink-accent);
+            line-height: 1.2;
+            text-align: center;
+            writing-mode: horizontal-tb;
+        }
+
+        .company-name {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            margin-top: 15px; 
+            font-size: 18px; 
+            font-weight: 700;
+            color: var(--text-dark);
+            opacity: 0.9;
+            letter-spacing: 0.05em;
+            padding-bottom: 2px;
+            font-family: 'Orbitron', sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+        <header class="header-hero-bg">
+            <div class="header-bg-image">
+                <img src="./top_copy.png" alt="背景画像">
+            </div>
+            <div class="header-bg-overlay"></div>
+
+            <div class="speech-bubble">
+                <div class="bubble-content">
+                    ・<span class="bubble-text-highlight"><span class="text-enlarge">自宅サロン</span>を始めたい</span><br>
+                    ・<span class="bubble-text-highlight">お店に新しくデトックスメニューを</span>
+                </div>
+                <span class="bubble-highlight">という方に<span class="text-pink-large">朗報</span>です!!</span>
+            </div>
+
+            <div class="news-badge">NEWS: リース制度開始</div>
+             
+            <h1 class="header-main-copy">
+                <span class="highlight-gold">少額資金でスタートできる</span><br>
+                デトックスサロン経営を<br>
+                始めませんか？
+            </h1>
+        </header>
+
+        <div class="evidence-section">
+            <h3 class="evidence-title">▼ 視覚で感じるデトックスの衝撃！SNS集客にも効果的 ▼</h3>
+            <div class="evidence-grid">
+                <div class="evidence-item">
+                    <div class="evidence-img-box">
+                        <img src="evidence_1.jpg.png" alt="泡">
+                    </div>
+                    <span>反応：白色</span>
+                </div>
+                <div class="evidence-item">
+                    <div class="evidence-img-box">
+                        <img src="evidence_2.jpg.png" alt="反応">
+                    </div>
+                    <span>反応：多量の泡</span>
+                </div>
+                <div class="evidence-item">
+                    <div class="evidence-img-box">
+                         <img src="evidence_3.jpg.png" alt="変色">
+                    </div>
+                    <span>反応：左右バランスの乱れ</span>
+                </div>
+            </div>
+            <p class="evidence-caption">※わずか30分で足が軽くなる感動を。<br>汚れの出方は体調や生活習慣により異なります。</p>
+        </div>
+
+        <section class="merits-section">
+            <h2 class="section-heading">選ばれる2つの理由</h2>
+            <div class="merits-container">
+                <div class="merit-box">
+                    <div class="merit-header">
+                        <i class="fa-solid fa-medal merit-icon"></i>
+                        <span class="merit-title">圧倒的な実績と信頼</span>
+                    </div>
+                    <ul class="merit-list">
+                        <li><strong>国内導入実績No.1</strong><br>5,000台が稼働中（2025年末予想）</li>
+                        <li><strong>ドクターの証明付き</strong><br>富山大学名誉教授によるデータ有</li>
+                        <li><strong>FDA承認モデルのメカニズム</strong><br>基本原理は米国FDA承認</li>
+                    </ul>
+                </div>
+                <div class="merit-box">
+                    <div class="merit-header">
+                        <i class="fa-solid fa-coins merit-icon"></i>
+                        <span class="merit-title">リース制度で低リスク</span>
+                    </div>
+                    <ul class="merit-list">
+                        <li><strong>初期費用削減</strong><br>まとまった資金がなくてもOK</li>
+                        <li><strong>選べるプラン</strong><br>「3年プラン」等、計画に合わせて選択</li>
+                        <li><strong>リピート率UP</strong><br>回数券販売で安定収益化</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer-section">
+            <h3 class="footer-cta-title">まずは収益シミュレーション！</h3>
+
+            <div class="footer-content-row">
+                <div class="plans-text-wrapper">
+                    <div class="plans-box">
+                        <div class="plans-title">選べるプラン</div>
+                        <div class="plans-list-custom">
+                            <div>1年プラン：<span style="color:#E9528E; font-size:1.15em;">月額 52,800円</span>(税込)</div>
+                            <div>3年プラン：<span style="color:#E9528E; font-size:1.15em;">月額 23,100円</span>(税込)</div>
+                            <div>5年プラン：<span style="color:#E9528E; font-size:1.15em;">月額 18,700円</span>(税込)</div>
+                        </div>
+                        <div class="plans-note">計画に合わせてチョイス可能</div>
+                        <div class="guide-arrow-inner"><i class="fa-solid fa-circle-arrow-right"></i></div>
+                    </div>
+                    
+                    <p class="footer-text-left">
+                        スマホで簡単チェック。<br>
+                        月間の <span class="highlight-marker">【売上高】</span> と <span class="highlight-marker">【手取り利益】</span> が自動計算されます。<br>
+                        すでに経営されている方も新メニュー追加で売上アップ！
+                    </p>
+                </div>
+
+                <div class="simulation-area">
+                    <div class="simulation-img-container">
+                        <div class="simulation-inner-header">シミュレーションイメージ</div>
+                        <img class="simulation-img" src="simulation.png" alt="Simulation Image">
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-qr-wrapper">
+                <div class="contact-left">
+                    <p class="footer-contact-note">シミュレーション、詳細資料ご希望の方は右のQRよりお問合せください</p>
+                    <div class="contact-info">
+                        <span class="contact-number"><i class="fa-solid fa-phone"></i> 0120-977-801</span>
+                    </div>
+                </div>
+                <div class="qr-box-small">
+                    <div class="qr-check-text">
+                        月々の<br>収入を<br>チェック
+                    </div>
+                    <img class="qr-code-img-small" src="gclpqr_code.png" alt="QR Code">
+                </div>
+            </div>
+
+            <div class="company-name">MindFitness Co., Ltd.</div>
+        </footer>
+    </div>
+</body>
+</html>
